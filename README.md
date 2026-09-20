@@ -1,4 +1,4 @@
-# AI Portfolio - Niladri Podder
+# AI Portfolio - Nihar Ranjan Kanungo
 
 A production-quality, premium portfolio website for an SAP AI Architect & Generative AI Lead, built with React, Vite, Tailwind CSS, and Framer Motion.
 
