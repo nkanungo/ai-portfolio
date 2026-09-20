@@ -312,10 +312,10 @@ Feel free to fork this project and customize it for your own portfolio. If you c
 
 ## 📧 Contact
 
-**Niladri Podder**
-- LinkedIn: [Your LinkedIn](https://linkedin.com)
-- GitHub: [Your GitHub](https://github.com)
-- Email: niladri@example.com
+**Nihar Ranjan Kanungo**
+- LinkedIn: [Your LinkedIn](https://www.linkedin.com/in/niharrk/))
+- GitHub: [Your GitHub](https://github.com/nkanungo)
+- Email: nihar.kanungo@gmail.com
 
 ## 🙏 Acknowledgments
 
