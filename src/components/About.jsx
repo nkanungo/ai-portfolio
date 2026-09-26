@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+
 import { motion } from 'framer-motion';
 
 import {
@@ -124,7 +125,7 @@ const About = () => {
                   }}
                 >
                   <div
-                    className={`relative h-full min-h-[235px] overflow-hidden rounded-2xl border p-5 transition-all duration-300 sm:p-6 ${
+                    className={`relative flex min-h-[270px] h-full flex-col overflow-hidden rounded-2xl border p-5 transition-all duration-300 sm:p-6 ${
                       item.id === 'ai-coe'
                         ? 'border-cyan-400/30 bg-gradient-to-br from-cyan-400/[0.10] via-white/[0.04] to-white/[0.02] shadow-lg shadow-cyan-500/5'
                         : 'border-white/10 bg-white/[0.03] hover:border-cyan-400/25 hover:bg-white/[0.05]'
@@ -147,33 +148,32 @@ const About = () => {
                       </span>
                     </div>
 
+                    {/* Flagship marker */}
+                    {item.id === 'ai-coe' && (
+                      <div className="absolute right-5 top-5 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-cyan-300">
+                        Flagship
+                      </div>
+                    )}
+
                     {/* Title */}
                     <h3 className="mt-6 text-lg font-semibold leading-7 text-white">
                       {item.title}
                     </h3>
 
-                    {/* Main-page one-line description */}
-                    {item.description && (
-                      <p className="mt-3 text-sm leading-6 text-slate-400">
-                        {item.description}
-                      </p>
-                    )}
+                    {/* Description */}
+                    <p className="mt-3 flex-1 pb-5 text-sm leading-6 text-slate-400">
+                      {item.description}
+                    </p>
 
-                    {/* CTA */}
-                    <div className="absolute bottom-5 left-5 flex items-center gap-2 text-xs font-semibold text-cyan-300 opacity-80 transition group-hover:opacity-100 sm:bottom-6 sm:left-6">
-                      Explore
+                    {/* CTA - dedicated row, never overlaps description */}
+                    <div className="mt-auto flex min-h-[28px] items-center gap-2 border-t border-white/5 pt-4 text-xs font-semibold text-cyan-300 opacity-90 transition group-hover:opacity-100">
+                      <span>Explore</span>
+
                       <ArrowUpRight
                         size={14}
                         className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                       />
                     </div>
-
-                    {/* CoE marker */}
-                    {item.id === 'ai-coe' && (
-                      <div className="absolute right-5 top-[72px] rounded-full border border-cyan-400/20 bg-cyan-400/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-cyan-300">
-                        Flagship
-                      </div>
-                    )}
                   </div>
                 </motion.button>
               );
