@@ -4,7 +4,8 @@ import {
   MapPin,
   CheckCircle2,
   Trophy,
-  Briefcase
+  Briefcase,
+  ArrowUpRight
 } from 'lucide-react';
 
 import { timeline } from '../data/timeline';
@@ -18,20 +19,23 @@ const Timeline = () => {
     >
       {/* Background decoration */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent-purple/5 rounded-full blur-3xl" />
-
       <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-accent-cyan/5 rounded-full blur-3xl" />
 
       <div className="container-custom relative z-10">
+
         <SectionHeading
           title="Technology Leadership Journey"
-          subtitle="Two decades of evolution from software engineering and analytics to enterprise architecture, platform transformation, and AI leadership"
+          subtitle="22+ years of progression across engineering, AI, enterprise architecture, platform transformation and technology leadership."
         />
 
-        <div className="relative max-w-6xl mx-auto">
-          {/* Main Timeline Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent-cyan via-accent-purple to-accent-cyan md:-translate-x-1/2" />
+        {/* Timeline */}
+        <div className="relative max-w-5xl mx-auto">
 
-          <div className="space-y-16">
+          {/* Timeline line */}
+          <div className="absolute left-3 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent-cyan via-accent-purple to-accent-cyan md:-translate-x-1/2" />
+
+          <div className="space-y-8 md:space-y-10">
+
             {timeline.map((experience, index) => {
               const isLeft = index % 2 === 0;
 
@@ -40,29 +44,28 @@ const Timeline = () => {
                   key={experience.id}
                   initial={{
                     opacity: 0,
-                    x: isLeft ? -50 : 50
+                    y: 20
                   }}
                   whileInView={{
                     opacity: 1,
-                    x: 0
+                    y: 0
                   }}
                   viewport={{
                     once: true,
-                    amount: 0.15
+                    amount: 0.1
                   }}
                   transition={{
-                    duration: 0.7,
-                    delay: index * 0.1
+                    duration: 0.5,
+                    delay: index * 0.05
                   }}
                   className="relative"
                 >
-                  {/* Timeline Marker */}
-                  <div className="absolute left-4 md:left-1/2 top-8 -translate-x-1/2 z-20">
-                    <motion.div
-                      whileHover={{
-                        scale: 1.2
-                      }}
-                      className={`w-5 h-5 rounded-full border-4 border-white dark:border-dark-800 shadow-lg ${
+
+                  {/* Timeline marker */}
+                  <div className="absolute left-3 md:left-1/2 top-5 -translate-x-1/2 z-20">
+
+                    <div
+                      className={`w-4 h-4 rounded-full border-[3px] border-white dark:border-dark-800 shadow ${
                         experience.type === 'current'
                           ? 'bg-accent-cyan'
                           : 'bg-accent-purple'
@@ -72,8 +75,8 @@ const Timeline = () => {
                     {experience.type === 'current' && (
                       <motion.div
                         animate={{
-                          scale: [1, 1.8, 1],
-                          opacity: [0.7, 0, 0.7]
+                          scale: [1, 1.7, 1],
+                          opacity: [0.6, 0, 0.6]
                         }}
                         transition={{
                           duration: 2,
@@ -83,146 +86,116 @@ const Timeline = () => {
                         className="absolute inset-0 rounded-full bg-accent-cyan -z-10"
                       />
                     )}
+
                   </div>
 
-                  {/* Timeline Content */}
+                  {/* Experience card */}
                   <div
-                    className={`ml-12 md:ml-0 md:w-[calc(50%-3rem)] ${
+                    className={`ml-8 md:ml-0 md:w-[calc(50%-2.5rem)] ${
                       isLeft
-                        ? 'md:mr-auto md:pr-0'
-                        : 'md:ml-auto md:pl-0'
+                        ? 'md:mr-auto'
+                        : 'md:ml-auto'
                     }`}
                   >
-                    <motion.div
-                      whileHover={{
-                        y: -5
-                      }}
-                      transition={{
-                        duration: 0.3
-                      }}
-                      className="glass-effect rounded-2xl p-6 md:p-8 border border-gray-200/20 dark:border-gray-700/30 hover:border-accent-cyan/50 transition-all duration-300"
-                    >
-                      {/* Period */}
-                      <div className="flex flex-wrap items-center gap-3 mb-5">
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-cyan/10 border border-accent-cyan/30">
-                          <Calendar className="w-4 h-4 text-accent-cyan" />
 
-                          <span className="text-sm font-semibold text-accent-cyan">
-                            {experience.period}
-                          </span>
-                        </div>
+                    <motion.div
+                      whileHover={{ y: -3 }}
+                      transition={{ duration: 0.25 }}
+                      className="rounded-2xl bg-white dark:bg-dark-900 border border-gray-200 dark:border-gray-700/50 p-5 md:p-6 hover:border-accent-cyan/40 transition-all duration-300"
+                    >
+
+                      {/* Period + current */}
+                      <div className="flex flex-wrap items-center gap-2 mb-3">
+
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 text-xs font-semibold text-accent-cyan">
+                          <Calendar className="w-3.5 h-3.5" />
+                          {experience.period}
+                        </span>
 
                         {experience.type === 'current' && (
-                          <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/30 text-green-600 dark:text-green-400 text-xs font-bold uppercase tracking-wider">
+                          <span className="px-2.5 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-[10px] font-bold uppercase tracking-wider text-green-600 dark:text-green-400">
                             Current
                           </span>
                         )}
+
                       </div>
 
                       {/* Role */}
-                      <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
+                      <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white leading-tight mb-2">
                         {experience.role}
                       </h3>
 
-                      {/* Company - Prominent Display */}
-                      <div className="mb-5">
-                        <div className="flex items-center gap-4">
-                          <div className="w-1.5 h-12 rounded-full bg-gradient-to-b from-accent-cyan to-accent-purple flex-shrink-0" />
+                      {/* Organisation */}
+                      <div className="flex items-center gap-2 mb-2">
+                        <Briefcase className="w-4 h-4 text-accent-cyan flex-shrink-0" />
 
-                          <div>
-                            <div className="flex items-center gap-2 mb-1">
-                              <Briefcase className="w-5 h-5 text-accent-cyan" />
-
-                              <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
-                                Organisation
-                              </span>
-                            </div>
-
-                            <div className="text-2xl md:text-3xl font-extrabold text-accent-cyan tracking-wide">
-                                   {experience.company}
-                            </div>
-                          </div>
-                        </div>
+                        <span className="text-base font-semibold text-accent-cyan">
+                          {experience.company}
+                        </span>
                       </div>
 
                       {/* Location */}
                       {experience.location && (
-                        <div className="flex items-center gap-2 mb-6 text-gray-600 dark:text-gray-400">
-                          <MapPin className="w-4 h-4 text-accent-purple flex-shrink-0" />
-
-                          <span className="text-sm font-medium">
-                            {experience.location}
-                          </span>
+                        <div className="flex items-center gap-1.5 mb-4 text-xs text-gray-500 dark:text-gray-400">
+                          <MapPin className="w-3.5 h-3.5 text-accent-purple" />
+                          {experience.location}
                         </div>
                       )}
 
                       {/* Description */}
-                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-7">
+                      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
                         {experience.description}
                       </p>
 
-                      {/* Highlights */}
+                      {/* Key contributions */}
                       {experience.highlights &&
                         experience.highlights.length > 0 && (
-                          <div className="mb-7">
-                            <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                              <CheckCircle2 className="w-5 h-5 text-accent-cyan" />
-                              Key Leadership & Contributions
+                          <div className="mb-4">
+
+                            <h4 className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+                              Leadership & Contributions
                             </h4>
 
-                            <ul className="space-y-3">
+                            <ul className="space-y-1.5">
                               {experience.highlights.map(
                                 (highlight, highlightIndex) => (
-                                  <motion.li
+                                  <li
                                     key={highlightIndex}
-                                    initial={{
-                                      opacity: 0,
-                                      x: -10
-                                    }}
-                                    whileInView={{
-                                      opacity: 1,
-                                      x: 0
-                                    }}
-                                    viewport={{
-                                      once: true
-                                    }}
-                                    transition={{
-                                      duration: 0.3,
-                                      delay: highlightIndex * 0.04
-                                    }}
-                                    className="flex items-start text-gray-700 dark:text-gray-300"
+                                    className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300"
                                   >
-                                    <span className="text-accent-cyan mr-3 mt-1 flex-shrink-0">
-                                      •
-                                    </span>
+                                    <CheckCircle2 className="w-3.5 h-3.5 text-accent-cyan mt-1 flex-shrink-0" />
 
                                     <span className="leading-relaxed">
                                       {highlight}
                                     </span>
-                                  </motion.li>
+                                  </li>
                                 )
                               )}
                             </ul>
+
                           </div>
                         )}
 
                       {/* Achievements */}
                       {experience.achievements &&
                         experience.achievements.length > 0 && (
-                          <div className="mb-7 p-5 rounded-xl bg-gradient-to-br from-accent-purple/5 to-accent-cyan/5 border border-accent-purple/20">
-                            <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                              <Trophy className="w-5 h-5 text-accent-purple" />
+                          <div className="mb-4 p-3.5 rounded-xl bg-gradient-to-br from-accent-purple/5 to-accent-cyan/5 border border-accent-purple/15">
+
+                            <h4 className="text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2 flex items-center gap-1.5">
+                              <Trophy className="w-3.5 h-3.5 text-accent-purple" />
                               Key Impact & Achievements
                             </h4>
 
-                            <ul className="space-y-3">
+                            <ul className="space-y-1.5">
                               {experience.achievements.map(
                                 (achievement, achievementIndex) => (
                                   <li
                                     key={achievementIndex}
-                                    className="flex items-start text-gray-700 dark:text-gray-300"
+                                    className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300"
                                   >
-                                    <CheckCircle2 className="w-4 h-4 text-accent-purple mr-3 mt-1 flex-shrink-0" />
+                                    <span className="text-accent-purple mt-0.5">
+                                      •
+                                    </span>
 
                                     <span className="leading-relaxed">
                                       {achievement}
@@ -231,48 +204,47 @@ const Timeline = () => {
                                 )
                               )}
                             </ul>
+
                           </div>
                         )}
 
                       {/* Technologies */}
                       {experience.technologies &&
                         experience.technologies.length > 0 && (
-                          <div>
-                            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">
-                              Technologies & Capabilities
-                            </h4>
+                          <div className="pt-3 border-t border-gray-200 dark:border-gray-700/50">
 
-                            <div className="flex flex-wrap gap-2">
+                            <div className="flex flex-wrap gap-1.5">
                               {experience.technologies.map(
                                 (technology, technologyIndex) => (
-                                  <motion.span
+                                  <span
                                     key={technologyIndex}
-                                    whileHover={{
-                                      scale: 1.05,
-                                      y: -2
-                                    }}
-                                    className="px-3 py-1.5 rounded-full text-xs font-medium bg-gray-100 dark:bg-dark-700 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600 hover:border-accent-cyan/60 transition-colors duration-300"
+                                    className="px-2 py-1 rounded-md text-[10px] font-medium bg-gray-100 dark:bg-dark-800 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-700"
                                   >
                                     {technology}
-                                  </motion.span>
+                                  </span>
                                 )
                               )}
                             </div>
+
                           </div>
                         )}
+
                     </motion.div>
+
                   </div>
+
                 </motion.div>
               );
             })}
+
           </div>
         </div>
 
-        {/* Journey Summary */}
+        {/* Journey summary */}
         <motion.div
           initial={{
             opacity: 0,
-            y: 20
+            y: 15
           }}
           whileInView={{
             opacity: 1,
@@ -282,24 +254,57 @@ const Timeline = () => {
             once: true
           }}
           transition={{
-            duration: 0.6,
-            delay: 0.3
+            duration: 0.5
           }}
-          className="mt-16 text-center"
+          className="mt-10 max-w-4xl mx-auto text-center"
         >
-          <div className="glass-effect inline-block max-w-5xl px-8 py-6 rounded-2xl border border-accent-cyan/30">
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+          <div className="rounded-2xl border border-accent-cyan/15 bg-gradient-to-r from-accent-cyan/5 to-accent-purple/5 px-6 py-5">
+
+            <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
               <span className="font-semibold gradient-text">
                 Engineering → Analytics & AI → Enterprise Architecture →
                 Product & Platform Transformation → Enterprise AI Leadership
               </span>
-              {' '}
-              — a technology leadership journey focused on turning emerging
-              innovation into scalable enterprise capabilities and measurable
-              business value.
+              {' '}— a technology leadership journey focused on turning
+              emerging innovation into scalable enterprise capabilities and
+              measurable business value.
             </p>
+
           </div>
         </motion.div>
+
+        {/* Continue indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-6 text-center"
+        >
+          <button
+            onClick={() => {
+              const element = document.getElementById('contact');
+
+              if (element) {
+                const offset = 80;
+                const position =
+                  element.getBoundingClientRect().top +
+                  window.pageYOffset -
+                  offset;
+
+                window.scrollTo({
+                  top: position,
+                  behavior: 'smooth'
+                });
+              }
+            }}
+            className="inline-flex items-center gap-2 text-sm font-medium text-accent-cyan hover:text-white transition-colors"
+          >
+            Continue to connect
+            <ArrowUpRight className="w-4 h-4" />
+          </button>
+        </motion.div>
+
       </div>
     </section>
   );
