@@ -1,34 +1,79 @@
 export const metrics = [
   {
-    id: 1,
-    value: 22,
-    suffix: "+",
+    value: "22+",
     label: "Years of Technology Leadership",
-    description: "Driving AI, Data, Cloud, and enterprise transformation",
-    icon: "users"
+    description:
+      "AI, cloud, enterprise architecture and digital transformation",
+    icon: "building",
   },
   {
-    id: 2,
-    value: 30,
-    suffix: "+",
-    label: "AI Products Enabled",
-    description: "Scaling AI, GenAI, and Agentic AI across enterprise business units",
-    icon: "rocket"
+    value: "500+",
+    label: "Professionals Led",
+    description:
+      "Managing global delivery teams across 6 countries",
+    icon: "users",
   },
   {
-    id: 3,
-    value: 100,
-    suffix: "M+",
-    label: "Transformation Investments Influenced",
-    description: "Shaping strategic technology roadmaps and modernization investments",
-    icon: "building"
+    value: "30+",
+    label: "AI Products Architected",
+    description:
+      "Across 11 global portfolios",
+    icon: "rocket",
   },
   {
-    id: 4,
-    value: 10,
-    suffix: "M+",
-    label: "AI Business Value Realized",
-    description: "Converting AI innovation into measurable enterprise business outcomes",
-    icon: "target"
-  }
+    value: "1M+",
+    label: "Unique Users",
+    description:
+      "Across 30+ enterprise products",
+    icon: "users",
+  },
+  {
+    value: "42.9%",
+    label: "Cost Efficiency",
+    description:
+      "Cost efficiency achieved last year",
+    icon: "target",
+  },
+  {
+    value: "40%",
+    label: "Delivery Volume Increase",
+    description:
+      "Increase in delivery volume last year",
+    icon: "rocket",
+  },
+  {
+    value: "7",
+    label: "Innovations Productized",
+    description:
+      "Across 6 business domains",
+    icon: "rocket",
+  },
+  {
+    value: "11",
+    label: "Knowledge Offerings",
+    description:
+      "Distinct knowledge offerings for organizations",
+    icon: "building",
+  },
+  {
+    value: "150+",
+    label: "Releases Supported",
+    description:
+      "Enterprise releases supported last year",
+    icon: "target",
+  },
+  {
+    value: "EY GDS",
+    label: "Impact Award",
+    description:
+      "EY GDS Impact Award",
+    icon: "target",
+  },
+  {
+    value: "Top 10",
+    label: "EY Distinguished Technologist Award",
+    description:
+      "Among the top 10 for the EY Distinguished Technologist Award",
+    icon: "target",
+  },
 ];
