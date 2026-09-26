@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+
 import {
   ChevronLeft,
   ChevronRight,
@@ -69,6 +70,7 @@ const About = () => {
               <p className="text-sm font-medium text-slate-400">
                 Areas of Leadership
               </p>
+
               <p className="mt-1 text-xs text-slate-600">
                 Select an area to explore the details
               </p>
@@ -123,7 +125,7 @@ const About = () => {
                 >
                   <div
                     className={`relative h-full min-h-[235px] overflow-hidden rounded-2xl border p-5 transition-all duration-300 sm:p-6 ${
-                      item.id === 'ai-coe-leadership'
+                      item.id === 'ai-coe'
                         ? 'border-cyan-400/30 bg-gradient-to-br from-cyan-400/[0.10] via-white/[0.04] to-white/[0.02] shadow-lg shadow-cyan-500/5'
                         : 'border-white/10 bg-white/[0.03] hover:border-cyan-400/25 hover:bg-white/[0.05]'
                     }`}
@@ -132,7 +134,7 @@ const About = () => {
                     <div className="flex items-start justify-between">
                       <div
                         className={`flex h-11 w-11 items-center justify-center rounded-xl border ${
-                          item.id === 'ai-coe-leadership'
+                          item.id === 'ai-coe'
                             ? 'border-cyan-400/30 bg-cyan-400/10 text-cyan-300'
                             : 'border-white/10 bg-white/[0.04] text-slate-300 group-hover:border-cyan-400/20 group-hover:text-cyan-300'
                         }`}
@@ -141,7 +143,7 @@ const About = () => {
                       </div>
 
                       <span className="text-xs font-semibold tracking-[0.18em] text-slate-600">
-                        {item.number}
+                        {item.number || String(index + 1).padStart(2, '0')}
                       </span>
                     </div>
 
@@ -150,13 +152,15 @@ const About = () => {
                       {item.title}
                     </h3>
 
-                    {/* Description */}
-                    <p className="mt-3 text-sm leading-6 text-slate-400">
-                      {item.shortDescription}
-                    </p>
+                    {/* Main-page one-line description */}
+                    {item.description && (
+                      <p className="mt-3 text-sm leading-6 text-slate-400">
+                        {item.description}
+                      </p>
+                    )}
 
                     {/* CTA */}
-                    <div className="absolute bottom-5 left-5 flex items-center gap-2 text-xs font-semibold text-cyan-300 opacity-80 transition group-hover:opacity-100 sm:left-6 sm:bottom-6">
+                    <div className="absolute bottom-5 left-5 flex items-center gap-2 text-xs font-semibold text-cyan-300 opacity-80 transition group-hover:opacity-100 sm:bottom-6 sm:left-6">
                       Explore
                       <ArrowUpRight
                         size={14}
@@ -165,7 +169,7 @@ const About = () => {
                     </div>
 
                     {/* CoE marker */}
-                    {item.id === 'ai-coe-leadership' && (
+                    {item.id === 'ai-coe' && (
                       <div className="absolute right-5 top-[72px] rounded-full border border-cyan-400/20 bg-cyan-400/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-cyan-300">
                         Flagship
                       </div>
