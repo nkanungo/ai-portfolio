@@ -32,7 +32,9 @@ const Hero = () => {
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden"
     >
-      {/* Animated Background */}
+      {/* =========================================================
+          ANIMATED BACKGROUND
+      ========================================================== */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 dark:from-dark-900 dark:via-indigo-950 dark:to-dark-900" />
 
@@ -40,7 +42,7 @@ const Hero = () => {
         <motion.div
           animate={{
             scale: [1, 1.2, 1],
-            opacity: [0.25, 0.4, 0.25],
+            opacity: [0.25, 0.4, 0.25]
           }}
           transition={{
             duration: 8,
@@ -54,7 +56,7 @@ const Hero = () => {
         <motion.div
           animate={{
             scale: [1, 1.3, 1],
-            opacity: [0.25, 0.4, 0.25],
+            opacity: [0.25, 0.4, 0.25]
           }}
           transition={{
             duration: 10,
@@ -69,7 +71,9 @@ const Hero = () => {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.05)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_50%,black,transparent)]" />
       </div>
 
-      {/* Main Content */}
+      {/* =========================================================
+          MAIN CONTENT
+      ========================================================== */}
       <div className="relative z-10 container-custom w-full px-6 lg:px-8 pt-20 pb-14">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center max-w-7xl mx-auto">
 
@@ -103,7 +107,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-4xl md:text-5xl xl:text-[3.4rem] font-bold text-white mb-2 text-shadow leading-tight"
+              className="text-4xl md:text-5xl xl:text-[3.25rem] font-bold text-white mb-2 text-shadow leading-tight"
             >
               Nihar Ranjan Kanungo
             </motion.h1>
@@ -126,7 +130,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-sm md:text-base xl:text-lg text-gray-300 mb-4 max-w-xl mx-auto lg:mx-0 leading-relaxed"
+              className="text-base md:text-base xl:text-lg text-gray-300 mb-4 max-w-xl mx-auto lg:mx-0 leading-7"
             >
               Architecting Enterprise AI. Building Intelligent Platforms.
               Transforming Businesses with Generative AI, Agentic AI,
@@ -149,7 +153,7 @@ const Hero = () => {
                     duration: 0.4,
                     delay: 0.65 + index * 0.08
                   }}
-                  className="px-2.5 py-1 rounded-full glass-effect text-[11px] md:text-xs text-gray-200 border border-accent-cyan/30"
+                  className="px-2.5 py-1 rounded-full glass-effect text-xs text-gray-200 border border-accent-cyan/30"
                 >
                   {specialty}
                 </motion.span>
@@ -172,7 +176,7 @@ const Hero = () => {
               </button>
 
               <button
-                onClick={() => scrollToSection('stories')}
+                onClick={() => scrollToSection('transformation')}
                 className="btn-secondary flex items-center gap-1.5 px-3.5 py-2 text-sm"
               >
                 <Users className="w-4 h-4" />
@@ -207,11 +211,11 @@ const Hero = () => {
                 </div>
 
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-accent-cyan mb-0.5">
+                  <p className="text-xs uppercase tracking-[0.2em] text-accent-cyan mb-0.5">
                     Executive Profile
                   </p>
 
-                  <h3 className="text-2xl md:text-[1.7rem] font-bold text-white">
+                  <h3 className="text-xl md:text-2xl font-bold text-white">
                     About Me
                   </h3>
                 </div>
@@ -219,7 +223,8 @@ const Hero = () => {
 
               {/* About Text */}
               <div className="space-y-3">
-                <p className="text-sm md:text-[15px] text-gray-300 leading-relaxed">
+
+                <p className="text-base text-gray-300 leading-7 text-justify">
                   I am an{' '}
                   <strong className="text-accent-cyan">
                     AI Transformation Leader
@@ -233,7 +238,7 @@ const Hero = () => {
                   business outcomes.
                 </p>
 
-                <p className="text-sm md:text-[15px] text-gray-300 leading-relaxed">
+                <p className="text-base text-gray-300 leading-7 text-justify">
                   My journey spans{' '}
                   <strong className="text-white">
                     Financial Services, Banking, Insurance, Supply Chain,
@@ -245,7 +250,7 @@ const Hero = () => {
                   initiatives.
                 </p>
 
-                <p className="text-sm md:text-[15px] text-gray-300 leading-relaxed">
+                <p className="text-base text-gray-300 leading-7 text-justify">
                   From architecting{' '}
                   <strong className="text-white">
                     enterprise Agentic AI platforms and multi-agent systems
@@ -258,6 +263,7 @@ const Hero = () => {
                   </strong>
                   .
                 </p>
+
               </div>
 
               {/* Leadership Metrics */}
@@ -268,7 +274,7 @@ const Hero = () => {
                     <div className="text-xl md:text-2xl font-bold gradient-text">
                       22+
                     </div>
-                    <div className="text-[10px] md:text-xs text-gray-400 mt-0.5">
+                    <div className="text-xs text-gray-400 mt-0.5">
                       Years Experience
                     </div>
                   </div>
@@ -277,7 +283,7 @@ const Hero = () => {
                     <div className="text-xl md:text-2xl font-bold gradient-text">
                       30+
                     </div>
-                    <div className="text-[10px] md:text-xs text-gray-400 mt-0.5">
+                    <div className="text-xs text-gray-400 mt-0.5">
                       AI Products
                     </div>
                   </div>
@@ -286,7 +292,7 @@ const Hero = () => {
                     <div className="text-xl md:text-2xl font-bold gradient-text">
                       100+
                     </div>
-                    <div className="text-[10px] md:text-xs text-gray-400 mt-0.5">
+                    <div className="text-xs text-gray-400 mt-0.5">
                       Leaders & Engineers
                     </div>
                   </div>
@@ -297,7 +303,7 @@ const Hero = () => {
               {/* View More */}
               <motion.button
                 whileHover={{ x: 4 }}
-                onClick={() => scrollToSection('about')}
+                onClick={() => scrollToSection('leadership')}
                 className="mt-4 text-xs md:text-sm font-medium text-accent-cyan hover:text-white transition-colors flex items-center gap-2"
               >
                 Explore my leadership & architecture focus
@@ -320,11 +326,12 @@ const Hero = () => {
             animate={{ y: [0, 7, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
             className="cursor-pointer"
-            onClick={() => scrollToSection('about')}
+            onClick={() => scrollToSection('leadership')}
           >
             <ArrowDown className="w-5 h-5 text-accent-cyan" />
           </motion.div>
         </motion.div>
+
       </div>
     </section>
   );

@@ -1,123 +1,176 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { Users, Rocket, Building2, Target } from "lucide-react";
-import { metrics } from "../data/metrics";
+import {
+  Building2,
+  Users,
+  Rocket,
+  Target,
+  Award,
+  TrendingUp,
+} from "lucide-react";
 
-const iconMap = {
-  users: Users,
-  rocket: Rocket,
-  building: Building2,
-  target: Target,
-};
+const metrics = [
+  {
+    value: "22+",
+    label: "Years of Technology Leadership",
+    description:
+      "AI, cloud, enterprise architecture and digital transformation",
+    icon: Building2,
+  },
+  {
+    value: "100+",
+    label: "Senior Professionals Led",
+    description: "Global delivery teams across 6 countries",
+    icon: Users,
+  },
+  {
+    value: "30+",
+    label: "AI Products Architected",
+    description: "Across 11 global portfolios",
+    icon: Rocket,
+  },
+  {
+    value: "1M+",
+    label: "Unique Users",
+    description: "Across 30+ enterprise products",
+    icon: Users,
+  },
+  {
+    value: "42.9%",
+    label: "Cost Efficiency Achieved",
+    description: "Cost efficiency achieved last year",
+    icon: Target,
+  },
+  {
+    value: "40%",
+    label: "Delivery Volume Increased",
+    description:
+      "Increase in delivery volume last year through AI adoption",
+    icon: TrendingUp,
+  },
+  {
+    value: "7",
+    label: "Innovations Productized",
+    description: "Across 6 business domains",
+    icon: Rocket,
+  },
+  {
+    value: "11",
+    label: "Knowledge Offerings",
+    description: "Distinct knowledge offerings for organizations",
+    icon: Building2,
+  },
+  {
+    value: "150+",
+    label: "Releases Supported",
+    description: "Enterprise releases supported last year",
+    icon: Target,
+  },
+  {
+    value: "EY GDS",
+    label: "Impact Award Winner",
+    description: "EY GDS Impact Award",
+    icon: Award,
+  },
+  {
+    value: "Top 10",
+    label: "EY Distinguished Technologist",
+    description:
+      "Among the top 10 for the EY Distinguished Technologist Award",
+    icon: Award,
+  },
+];
 
-const Metrics = () => {
+function MetricCard({ metric }) {
+  const Icon = metric.icon;
+
+  return (
+    <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.025] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:bg-white/[0.045]">
+
+      {/* Subtle hover glow */}
+      <div className="pointer-events-none absolute -right-12 -top-12 h-28 w-28 rounded-full bg-cyan-400/5 blur-3xl transition-all duration-500 group-hover:bg-cyan-400/10" />
+
+      <div className="relative">
+
+        {/* Icon */}
+        <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.035] text-slate-400 transition-colors duration-300 group-hover:border-cyan-400/30 group-hover:text-cyan-300">
+          <Icon className="h-5 w-5" strokeWidth={1.7} />
+        </div>
+
+        {/* KPI Number */}
+        <div className="text-3xl font-extrabold tracking-tight text-cyan-400 drop-shadow-[0_0_12px_rgba(34,211,238,0.18)] sm:text-4xl">
+          {metric.value}
+        </div>
+
+        {/* Label */}
+        <div className="mt-3 text-sm font-semibold leading-snug text-white">
+          {metric.label}
+        </div>
+
+        {/* Description */}
+        <div className="mt-2 text-sm leading-6 text-slate-400">
+          {metric.description}
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+export default function Metrics() {
   return (
     <section
       id="metrics"
-      className="relative py-14 md:py-16 bg-slate-950 overflow-hidden"
+      className="relative overflow-hidden bg-[#070b18] py-20 sm:py-24"
     >
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-72 h-72 bg-cyan-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl" />
-      </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Background glow */}
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[360px] w-[900px] -translate-x-1/2 rounded-full bg-cyan-500/[0.035] blur-[120px]" />
 
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-8"
-        >
-          <p className="text-xs uppercase tracking-[0.2em] text-cyan-400 font-semibold mb-2">
-            Impact & Leadership
-          </p>
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
 
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Leadership at Scale
+        {/* SECTION HEADER */}
+        <div className="mx-auto max-w-3xl text-center">
+
+          <div className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-400">
+            Leadership Impact
+          </div>
+
+          <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+            Leadership at{" "}
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              Scale
+            </span>
           </h2>
 
-          <p className="mt-2 max-w-3xl mx-auto text-sm text-slate-400">
-            Measurable impact across AI transformation, enterprise architecture,
-            product innovation, global delivery and technology leadership.
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-400 sm:text-lg">
+            Enterprise-scale impact across AI, architecture, transformation
+            and technology leadership.
           </p>
-        </motion.div>
 
-        {/* Impact Tiles */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-          {metrics.map((metric, index) => {
-            const Icon = iconMap[metric.icon] || Target;
-
-            return (
-              <motion.div
-                key={`${metric.label}-${index}`}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.35,
-                  delay: Math.min(index * 0.03, 0.25),
-                }}
-                className="group min-h-[145px] rounded-xl border border-slate-800 bg-slate-900/70 p-4 hover:border-cyan-500/30 hover:bg-slate-900 transition-all duration-300"
-              >
-                <div className="flex items-start justify-between gap-2">
-                  <div className="min-w-0">
-                    <div className="text-2xl md:text-3xl font-bold text-white leading-none">
-                      {metric.value}
-                    </div>
-
-                    <h3 className="mt-2 text-xs md:text-sm font-semibold text-slate-200 leading-snug">
-                      {metric.label}
-                    </h3>
-                  </div>
-
-                  <div className="flex-shrink-0 w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center">
-                    <Icon
-                      size={14}
-                      className="text-cyan-400"
-                      strokeWidth={1.8}
-                    />
-                  </div>
-                </div>
-
-                <p className="mt-2 text-[11px] md:text-xs leading-relaxed text-slate-500">
-                  {metric.description}
-                </p>
-              </motion.div>
-            );
-          })}
         </div>
 
-        {/* Leadership Themes */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-7 text-center"
-        >
-          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-slate-500">
-            <span className="text-slate-300">AI Transformation</span>
-            <span>•</span>
-            <span className="text-slate-300">
-              Enterprise Architecture
-            </span>
-            <span>•</span>
-            <span className="text-slate-300">AI Platforms</span>
-            <span>•</span>
-            <span className="text-slate-300">Product Strategy</span>
-            <span>•</span>
-            <span className="text-slate-300">
-              Global Technology Leadership
-            </span>
-          </div>
-        </motion.div>
+        {/* METRICS GRID */}
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+
+          {metrics.map((metric) => (
+            <MetricCard
+              key={`${metric.value}-${metric.label}`}
+              metric={metric}
+            />
+          ))}
+
+        </div>
+
+        {/* BOTTOM SIGNAL */}
+        <div className="mt-10 flex items-center justify-center gap-3 text-xs font-medium uppercase tracking-[0.16em] text-slate-500">
+          <span className="h-px w-10 bg-white/10" />
+
+          <span>Enterprise AI • Architecture • Transformation</span>
+
+          <span className="h-px w-10 bg-white/10" />
+        </div>
 
       </div>
     </section>
   );
-};
-
-export default Metrics;
+}

@@ -1,313 +1,604 @@
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
 import {
-  Calendar,
-  MapPin,
-  CheckCircle2,
-  Trophy,
-  Briefcase,
-  ArrowUpRight
-} from 'lucide-react';
+  Plus,
+  Minus,
+  Flag,
+  ChevronRight,
+} from "lucide-react";
 
-import { timeline } from '../data/timeline';
-import SectionHeading from './SectionHeading';
+const career = [
+  {
+    year: "2001",
+    company: "Freelance",
+    duration: "1.5 years",
+    role: "Freelance Software Developer",
+    period: "October 2001 – March 2003",
+    position: "above",
+    description:
+      "Early software engineering experience building applications and developing a strong foundation in software development.",
+    highlights: [
+      "Software development",
+      "Application engineering",
+      "Technical problem solving",
+    ],
+  },
 
-const Timeline = () => {
+  {
+    year: "2003",
+    company: "NESCO",
+    duration: "1.5 years",
+    role: "Assistant Engineer (Trainee)",
+    period: "March 2003 – October 2004",
+    position: "below",
+    description:
+      "Engineering foundation combining technical problem solving with practical project experience.",
+    highlights: [
+      "Engineering fundamentals",
+      "Technical problem solving",
+      "Project experience",
+    ],
+  },
+
+  {
+    year: "2004",
+    company: "Wipro",
+    duration: "8 months",
+    role: "Project Engineer | BFSI Domain",
+    period: "October 2004 – June 2005",
+    position: "above",
+    description:
+      "Enterprise technology delivery within the Banking, Financial Services and Insurance domain.",
+    highlights: [
+      "BFSI technology",
+      "Enterprise application delivery",
+      "Client-focused technology solutions",
+    ],
+  },
+
+  {
+    year: "2005",
+    company: "IBM",
+    duration: "3 years",
+    role: "Advisory Systems Analyst | Financial Services Sector",
+    period: "June 2005 – May 2008",
+    position: "below",
+    description:
+      "Technology consulting and systems analysis across financial services engagements.",
+    highlights: [
+      "Financial services technology",
+      "Systems analysis",
+      "Technology advisory",
+    ],
+  },
+
+  {
+    year: "2008",
+    company: "Dell Perot",
+    duration: "5 months",
+    role: "Application Lead | Finance Domain",
+    period: "June 2008 – November 2008",
+    position: "above",
+    description:
+      "Application leadership within finance-focused technology delivery.",
+    highlights: [
+      "Application leadership",
+      "Finance technology",
+      "Enterprise delivery",
+    ],
+  },
+
+  {
+    year: "2008",
+    company: "TCS",
+    duration: "11 years",
+    role: "Technology Leader | Analytics & Insights",
+    period: "November 2008 – November 2019",
+    position: "below",
+    description:
+      "Long-term technology leadership across analytics, data and AI engagements, including strategic client delivery and capability development.",
+    highlights: [
+      "Data & AI leadership",
+      "Analytics & Insights",
+      "Strategic client engagements",
+      "Technology delivery leadership",
+      "Mentoring and capability development",
+    ],
+  },
+
+  {
+    year: "2019",
+    company: "Accenture",
+    duration: "1.7 years",
+    role: "Technology Architect Delivery Manager | Data & AI Practice",
+    period: "November 2019 – July 2021",
+    position: "above",
+    description:
+      "Led Data & AI practice teams and AI transformation initiatives involving machine learning, NLP and deep learning.",
+    highlights: [
+      "Data & AI practice leadership",
+      "Machine Learning",
+      "NLP",
+      "Deep Learning",
+      "AI showcases and prototypes",
+    ],
+  },
+
+  {
+    year: "2021",
+    company: "LTI",
+    duration: "3 months",
+    role: "Associate Principal | Data Engineering Practice",
+    period: "July 2021 – September 2021",
+    position: "below",
+    description:
+      "Associate Principal role focused on data engineering practice leadership and enterprise technology capabilities.",
+    highlights: [
+      "Data engineering",
+      "Practice leadership",
+      "Enterprise technology",
+    ],
+  },
+
+  {
+    year: "2021",
+    company: "Ernst & Young (EY)",
+    shortCompany: "EY",
+    duration: "Present",
+    role: "Lead AI Portfolio Architect | Technology Strategy & Architecture",
+    period: "September 2021 – Present",
+    position: "above",
+    current: true,
+    description:
+      "Leading enterprise AI, GenAI and Agentic AI transformation across global portfolios, combining AI architecture, technology strategy, platform architecture and AI CoE leadership.",
+    highlights: [
+      "30+ AI products architected",
+      "Enterprise Agentic AI platforms",
+      "AI Centre of Excellence",
+      "AI & technology strategy",
+      "Product & platform architecture",
+      "AI-assisted Software Factory",
+      "Global AI transformation",
+    ],
+  },
+];
+
+function CareerDetail({ item }) {
   return (
-    <section
-      id="timeline"
-      className="section-padding bg-gray-50 dark:bg-dark-800 relative overflow-hidden"
-    >
-      {/* Background decoration */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent-purple/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-accent-cyan/5 rounded-full blur-3xl" />
+    <div className="mt-10 rounded-2xl border border-cyan-400/20 bg-slate-900/80 p-6 shadow-xl sm:p-8">
 
-      <div className="container-custom relative z-10">
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
 
-        <SectionHeading
-          title="Technology Leadership Journey"
-          subtitle="22+ years of progression across engineering, AI, enterprise architecture, platform transformation and technology leadership."
-        />
+        <div>
+          <div className="mb-2 text-xs font-semibold uppercase tracking-widest text-cyan-400">
+            Career Milestone
+          </div>
 
-        {/* Timeline */}
-        <div className="relative max-w-5xl mx-auto">
+          <h3 className="text-2xl font-bold text-white">
+            {item.company}
+          </h3>
 
-          {/* Timeline line */}
-          <div className="absolute left-3 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent-cyan via-accent-purple to-accent-cyan md:-translate-x-1/2" />
+          <p className="mt-2 text-base font-medium text-cyan-300">
+            {item.role}
+          </p>
 
-          <div className="space-y-8 md:space-y-10">
+          <p className="mt-2 text-sm text-slate-500">
+            {item.period}
+          </p>
+        </div>
 
-            {timeline.map((experience, index) => {
-              const isLeft = index % 2 === 0;
+        <div className="rounded-xl border border-slate-800 bg-slate-950 px-5 py-4 lg:min-w-[180px]">
+          <div className="text-xs uppercase tracking-widest text-slate-500">
+            Duration
+          </div>
 
-              return (
-                <motion.div
-                  key={experience.id}
-                  initial={{
-                    opacity: 0,
-                    y: 20
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0
-                  }}
-                  viewport={{
-                    once: true,
-                    amount: 0.1
-                  }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.05
-                  }}
-                  className="relative"
-                >
-
-                  {/* Timeline marker */}
-                  <div className="absolute left-3 md:left-1/2 top-5 -translate-x-1/2 z-20">
-
-                    <div
-                      className={`w-4 h-4 rounded-full border-[3px] border-white dark:border-dark-800 shadow ${
-                        experience.type === 'current'
-                          ? 'bg-accent-cyan'
-                          : 'bg-accent-purple'
-                      }`}
-                    />
-
-                    {experience.type === 'current' && (
-                      <motion.div
-                        animate={{
-                          scale: [1, 1.7, 1],
-                          opacity: [0.6, 0, 0.6]
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: 'easeInOut'
-                        }}
-                        className="absolute inset-0 rounded-full bg-accent-cyan -z-10"
-                      />
-                    )}
-
-                  </div>
-
-                  {/* Experience card */}
-                  <div
-                    className={`ml-8 md:ml-0 md:w-[calc(50%-2.5rem)] ${
-                      isLeft
-                        ? 'md:mr-auto'
-                        : 'md:ml-auto'
-                    }`}
-                  >
-
-                    <motion.div
-                      whileHover={{ y: -3 }}
-                      transition={{ duration: 0.25 }}
-                      className="rounded-2xl bg-white dark:bg-dark-900 border border-gray-200 dark:border-gray-700/50 p-5 md:p-6 hover:border-accent-cyan/40 transition-all duration-300"
-                    >
-
-                      {/* Period + current */}
-                      <div className="flex flex-wrap items-center gap-2 mb-3">
-
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 text-xs font-semibold text-accent-cyan">
-                          <Calendar className="w-3.5 h-3.5" />
-                          {experience.period}
-                        </span>
-
-                        {experience.type === 'current' && (
-                          <span className="px-2.5 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-[10px] font-bold uppercase tracking-wider text-green-600 dark:text-green-400">
-                            Current
-                          </span>
-                        )}
-
-                      </div>
-
-                      {/* Role */}
-                      <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white leading-tight mb-2">
-                        {experience.role}
-                      </h3>
-
-                      {/* Organisation */}
-                      <div className="flex items-center gap-2 mb-2">
-                        <Briefcase className="w-4 h-4 text-accent-cyan flex-shrink-0" />
-
-                        <span className="text-base font-semibold text-accent-cyan">
-                          {experience.company}
-                        </span>
-                      </div>
-
-                      {/* Location */}
-                      {experience.location && (
-                        <div className="flex items-center gap-1.5 mb-4 text-xs text-gray-500 dark:text-gray-400">
-                          <MapPin className="w-3.5 h-3.5 text-accent-purple" />
-                          {experience.location}
-                        </div>
-                      )}
-
-                      {/* Description */}
-                      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-                        {experience.description}
-                      </p>
-
-                      {/* Key contributions */}
-                      {experience.highlights &&
-                        experience.highlights.length > 0 && (
-                          <div className="mb-4">
-
-                            <h4 className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
-                              Leadership & Contributions
-                            </h4>
-
-                            <ul className="space-y-1.5">
-                              {experience.highlights.map(
-                                (highlight, highlightIndex) => (
-                                  <li
-                                    key={highlightIndex}
-                                    className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300"
-                                  >
-                                    <CheckCircle2 className="w-3.5 h-3.5 text-accent-cyan mt-1 flex-shrink-0" />
-
-                                    <span className="leading-relaxed">
-                                      {highlight}
-                                    </span>
-                                  </li>
-                                )
-                              )}
-                            </ul>
-
-                          </div>
-                        )}
-
-                      {/* Achievements */}
-                      {experience.achievements &&
-                        experience.achievements.length > 0 && (
-                          <div className="mb-4 p-3.5 rounded-xl bg-gradient-to-br from-accent-purple/5 to-accent-cyan/5 border border-accent-purple/15">
-
-                            <h4 className="text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-2 flex items-center gap-1.5">
-                              <Trophy className="w-3.5 h-3.5 text-accent-purple" />
-                              Key Impact & Achievements
-                            </h4>
-
-                            <ul className="space-y-1.5">
-                              {experience.achievements.map(
-                                (achievement, achievementIndex) => (
-                                  <li
-                                    key={achievementIndex}
-                                    className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300"
-                                  >
-                                    <span className="text-accent-purple mt-0.5">
-                                      •
-                                    </span>
-
-                                    <span className="leading-relaxed">
-                                      {achievement}
-                                    </span>
-                                  </li>
-                                )
-                              )}
-                            </ul>
-
-                          </div>
-                        )}
-
-                      {/* Technologies */}
-                      {experience.technologies &&
-                        experience.technologies.length > 0 && (
-                          <div className="pt-3 border-t border-gray-200 dark:border-gray-700/50">
-
-                            <div className="flex flex-wrap gap-1.5">
-                              {experience.technologies.map(
-                                (technology, technologyIndex) => (
-                                  <span
-                                    key={technologyIndex}
-                                    className="px-2 py-1 rounded-md text-[10px] font-medium bg-gray-100 dark:bg-dark-800 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-700"
-                                  >
-                                    {technology}
-                                  </span>
-                                )
-                              )}
-                            </div>
-
-                          </div>
-                        )}
-
-                    </motion.div>
-
-                  </div>
-
-                </motion.div>
-              );
-            })}
-
+          <div className="mt-1 text-lg font-semibold text-white">
+            {item.duration}
           </div>
         </div>
 
-        {/* Journey summary */}
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 15
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0
-          }}
-          viewport={{
-            once: true
-          }}
-          transition={{
-            duration: 0.5
-          }}
-          className="mt-10 max-w-4xl mx-auto text-center"
-        >
-          <div className="rounded-2xl border border-accent-cyan/15 bg-gradient-to-r from-accent-cyan/5 to-accent-purple/5 px-6 py-5">
+      </div>
 
-            <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
-              <span className="font-semibold gradient-text">
-                Engineering → Analytics & AI → Enterprise Architecture →
-                Product & Platform Transformation → Enterprise AI Leadership
-              </span>
-              {' '}— a technology leadership journey focused on turning
-              emerging innovation into scalable enterprise capabilities and
-              measurable business value.
-            </p>
+      <p className="mt-6 max-w-4xl text-sm leading-7 text-slate-400">
+        {item.description}
+      </p>
+
+      <div className="mt-6 flex flex-wrap gap-2">
+        {item.highlights.map((highlight) => (
+          <span
+            key={highlight}
+            className="rounded-full border border-slate-700 bg-slate-950 px-3 py-1.5 text-xs text-slate-300"
+          >
+            {highlight}
+          </span>
+        ))}
+      </div>
+
+    </div>
+  );
+}
+
+export default function Timeline() {
+  const [selectedIndex, setSelectedIndex] = useState(null);
+
+  function toggleItem(index) {
+    if (selectedIndex === index) {
+      setSelectedIndex(null);
+    } else {
+      setSelectedIndex(index);
+    }
+  }
+
+  return (
+    <section
+      id="experience"
+      className="relative overflow-hidden bg-slate-950 py-24 text-white"
+    >
+
+      {/* Background */}
+
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-0 h-[450px] w-[800px] -translate-x-1/2 rounded-full bg-cyan-500/5 blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+
+        {/* HEADER */}
+
+        <div className="mx-auto mb-14 max-w-4xl text-center">
+
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/5 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-cyan-300">
+            Career Journey
+          </div>
+
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+            Career Experience
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-slate-400 sm:text-lg">
+            22+ years of progression across software engineering, technology
+            leadership, data &amp; AI, enterprise architecture and AI
+            transformation.
+          </p>
+
+        </div>
+
+        {/* =========================================================
+            DESKTOP TIMELINE
+           ========================================================= */}
+
+        <div className="hidden lg:block">
+
+          {/* Start / Present */}
+
+          <div className="mb-2 flex items-center justify-between text-sm font-semibold text-slate-500">
+
+            <span>2001</span>
+
+            <span className="flex items-center gap-2 text-slate-300">
+              Present
+              <Flag className="h-4 w-4 text-cyan-400" />
+            </span>
 
           </div>
-        </motion.div>
 
-        {/* Continue indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-6 text-center"
-        >
-          <button
-            onClick={() => {
-              const element = document.getElementById('contact');
+          <div className="relative h-[520px]">
 
-              if (element) {
-                const offset = 80;
-                const position =
-                  element.getBoundingClientRect().top +
-                  window.pageYOffset -
-                  offset;
+            {/* MAIN LINE */}
 
-                window.scrollTo({
-                  top: position,
-                  behavior: 'smooth'
-                });
-              }
-            }}
-            className="inline-flex items-center gap-2 text-sm font-medium text-accent-cyan hover:text-white transition-colors"
-          >
-            Continue to connect
-            <ArrowUpRight className="w-4 h-4" />
-          </button>
-        </motion.div>
+            <div className="absolute left-0 right-0 top-1/2 h-[3px] -translate-y-1/2 bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400" />
+
+            {/* MILESTONES */}
+
+            <div className="absolute inset-0 grid grid-cols-9">
+
+              {career.map((item, index) => {
+
+                const isSelected = selectedIndex === index;
+                const isAbove = item.position === "above";
+
+                return (
+                  <div
+                    key={item.company + "-" + item.year}
+                    className="relative min-w-0"
+                  >
+
+                    {/* =================================================
+                        ABOVE
+                       ================================================= */}
+
+                    {isAbove && (
+                      <div className="absolute bottom-1/2 left-1/2 w-[120px] -translate-x-1/2 pb-8 text-center">
+
+                        <div
+                          className={
+                            "mx-auto mb-1 truncate text-sm font-semibold " +
+                            (
+                              item.current
+                                ? "text-cyan-300"
+                                : "text-white"
+                            )
+                          }
+                          title={item.company}
+                        >
+                          {item.shortCompany || item.company}
+                        </div>
+
+                        <div className="text-xs text-slate-500">
+                          {item.duration}
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={() => toggleItem(index)}
+                          className={
+                            "mx-auto mt-3 flex h-9 w-9 items-center justify-center rounded-full border transition-all " +
+                            (
+                              item.current
+                                ? "border-cyan-400/60 bg-cyan-400/10 text-cyan-300 hover:bg-cyan-400/20"
+                                : isSelected
+                                ? "border-cyan-400 bg-cyan-400/10 text-cyan-300"
+                                : "border-slate-700 bg-slate-950 text-cyan-400 hover:border-cyan-400/50"
+                            )
+                          }
+                          aria-label={
+                            isSelected
+                              ? "Hide career details"
+                              : "Show career details"
+                          }
+                        >
+                          {isSelected ? (
+                            <Minus className="h-4 w-4" />
+                          ) : (
+                            <Plus className="h-4 w-4" />
+                          )}
+                        </button>
+
+                      </div>
+                    )}
+
+                    {/* NODE */}
+
+                    <div className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
+
+                      <div
+                        className={
+                          "rounded-full border-2 border-slate-950 transition-all " +
+                          (
+                            item.current
+                              ? "h-5 w-5 bg-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.8)]"
+                              : isSelected
+                              ? "h-5 w-5 bg-cyan-400 shadow-[0_0_16px_rgba(34,211,238,0.6)]"
+                              : "h-4 w-4 bg-purple-500"
+                          )
+                        }
+                      />
+
+                    </div>
+
+                    {/* YEAR */}
+
+                    <div
+                      className={
+                        "absolute left-1/2 -translate-x-1/2 text-xs font-semibold text-cyan-400 " +
+                        (
+                          isAbove
+                            ? "top-[calc(50%+25px)]"
+                            : "bottom-[calc(50%+25px)]"
+                        )
+                      }
+                    >
+                      {item.year}
+                    </div>
+
+                    {/* =================================================
+                        BELOW
+                       ================================================= */}
+
+                    {!isAbove && (
+                      <div className="absolute left-1/2 top-1/2 w-[120px] -translate-x-1/2 pt-8 text-center">
+
+                        <div
+                          className="mx-auto mb-1 truncate text-sm font-semibold text-white"
+                          title={item.company}
+                        >
+                          {item.shortCompany || item.company}
+                        </div>
+
+                        <div className="text-xs text-slate-500">
+                          {item.duration}
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={() => toggleItem(index)}
+                          className={
+                            "mx-auto mt-3 flex h-9 w-9 items-center justify-center rounded-full border transition-all " +
+                            (
+                              isSelected
+                                ? "border-cyan-400 bg-cyan-400/10 text-cyan-300"
+                                : "border-slate-700 bg-slate-950 text-cyan-400 hover:border-cyan-400/50"
+                            )
+                          }
+                          aria-label={
+                            isSelected
+                              ? "Hide career details"
+                              : "Show career details"
+                          }
+                        >
+                          {isSelected ? (
+                            <Minus className="h-4 w-4" />
+                          ) : (
+                            <Plus className="h-4 w-4" />
+                          )}
+                        </button>
+
+                      </div>
+                    )}
+
+                  </div>
+                );
+              })}
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* =========================================================
+            MOBILE / TABLET TIMELINE
+           ========================================================= */}
+
+        <div className="lg:hidden">
+
+          <div className="mb-6 flex items-center justify-between text-sm font-semibold text-slate-500">
+            <span>2001</span>
+
+            <span className="flex items-center gap-2 text-slate-300">
+              Present
+              <Flag className="h-4 w-4 text-cyan-400" />
+            </span>
+          </div>
+
+          <div className="overflow-x-auto pb-6">
+
+            <div className="min-w-[1050px]">
+
+              <div className="relative h-[500px]">
+
+                <div className="absolute left-0 right-0 top-1/2 h-[3px] bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400" />
+
+                <div className="absolute inset-0 grid grid-cols-9">
+
+                  {career.map((item, index) => {
+
+                    const isSelected = selectedIndex === index;
+                    const isAbove = item.position === "above";
+
+                    return (
+                      <div
+                        key={item.company + "-mobile-" + item.year}
+                        className="relative"
+                      >
+
+                        {isAbove && (
+                          <div className="absolute bottom-1/2 left-1/2 w-[115px] -translate-x-1/2 pb-7 text-center">
+
+                            <div className="truncate text-sm font-semibold text-white">
+                              {item.shortCompany || item.company}
+                            </div>
+
+                            <div className="text-xs text-slate-500">
+                              {item.duration}
+                            </div>
+
+                            <button
+                              type="button"
+                              onClick={() => toggleItem(index)}
+                              className="mx-auto mt-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 bg-slate-950 text-cyan-400"
+                            >
+                              {isSelected ? (
+                                <Minus className="h-4 w-4" />
+                              ) : (
+                                <Plus className="h-4 w-4" />
+                              )}
+                            </button>
+
+                          </div>
+                        )}
+
+                        <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
+
+                          <div
+                            className={
+                              "rounded-full border-2 border-slate-950 " +
+                              (
+                                item.current
+                                  ? "h-5 w-5 bg-cyan-400 shadow-[0_0_18px_rgba(34,211,238,0.7)]"
+                                  : "h-4 w-4 bg-purple-500"
+                              )
+                            }
+                          />
+
+                        </div>
+
+                        <div
+                          className={
+                            "absolute left-1/2 -translate-x-1/2 text-xs font-semibold text-cyan-400 " +
+                            (
+                              isAbove
+                                ? "top-[calc(50%+24px)]"
+                                : "bottom-[calc(50%+24px)]"
+                            )
+                          }
+                        >
+                          {item.year}
+                        </div>
+
+                        {!isAbove && (
+                          <div className="absolute left-1/2 top-1/2 w-[115px] -translate-x-1/2 pt-7 text-center">
+
+                            <div className="truncate text-sm font-semibold text-white">
+                              {item.shortCompany || item.company}
+                            </div>
+
+                            <div className="text-xs text-slate-500">
+                              {item.duration}
+                            </div>
+
+                            <button
+                              type="button"
+                              onClick={() => toggleItem(index)}
+                              className="mx-auto mt-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 bg-slate-950 text-cyan-400"
+                            >
+                              {isSelected ? (
+                                <Minus className="h-4 w-4" />
+                              ) : (
+                                <Plus className="h-4 w-4" />
+                              )}
+                            </button>
+
+                          </div>
+                        )}
+
+                      </div>
+                    );
+                  })}
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div className="flex items-center justify-center gap-2 text-xs text-slate-600">
+            <ChevronRight className="h-4 w-4" />
+            Swipe horizontally to explore the career journey
+          </div>
+
+        </div>
+
+        {/* DETAIL PANEL */}
+
+        {selectedIndex !== null && (
+          <CareerDetail item={career[selectedIndex]} />
+        )}
+
+        {/* SUMMARY */}
+
+        <div className="mx-auto mt-12 max-w-4xl border-t border-slate-800 pt-8 text-center">
+
+          <p className="text-sm leading-7 text-slate-500">
+            A career spanning software engineering, enterprise technology,
+            data &amp; AI, architecture, platform transformation and
+            enterprise AI leadership.
+          </p>
+
+        </div>
 
       </div>
     </section>
   );
-};
-
-export default Timeline;
+}

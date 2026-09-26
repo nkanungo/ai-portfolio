@@ -1,197 +1,292 @@
 export const timeline = [
   {
     id: 1,
-    period: "2024 - Present",
-    role: "AI Transformation Leader | AI Center of Excellence Lead",
-    company: "EY",
+    period: "September 2021 - Present",
+    role: "Lead AI Portfolio Architect | Technology Strategy & Architecture",
+    company: "Ernst & Young (EY)",
     location: "India | Global",
-    description: "Leading enterprise AI transformation and the AI Center of Excellence for the service line, shaping how Generative AI, Agentic AI, advanced AI technologies, and intelligent platforms move from research and experimentation into scalable enterprise capabilities and measurable business value.",
+
+    description:
+      "Leading enterprise AI, GenAI, Agentic AI, technology strategy, architecture, and platform transformation across global business portfolios.",
+
     highlights: [
-      "Lead the AI Center of Excellence for the service line, connecting innovation, research, engineering, architecture, and enterprise AI adoption",
-      "Shape enterprise AI, Generative AI, and Agentic AI strategy across global technology portfolios",
-      "Drive AI innovation and emerging technology research, including multi-agent systems, reinforcement learning, enterprise knowledge systems, and autonomous workflows",
-      "Lead development of innovative AI products, reusable assets, reference architectures, and enterprise AI capabilities",
-      "Accelerate AI adoption and value realization through structured enablement, knowledge sharing, and capability development",
-      "Architect enterprise Agentic AI platforms and multi-agent architecture patterns",
-      "Define Agent Factory concepts to industrialize enterprise agent development using an assembly-line engineering approach",
-      "Shape enterprise Agents and Assets Marketplace architecture to enable discovery, governance, and reuse of AI capabilities",
-      "Establish Responsible AI, AI governance, evaluation, and AgentOps architecture foundations"
+      "Spearheaded enterprise AI, GenAI, and Agentic AI transformation across global business units, enabling 30+ AI products and improving operational efficiency by more than 30%.",
+      "Architected scalable AI and enterprise architectures across Azure, AWS, and IBM Cloud.",
+      "Designed enterprise-grade Agentic AI platforms and reference architectures using multi-agent systems, LLMs, RAG, enterprise knowledge systems, evaluation frameworks, guardrails, and Responsible AI patterns.",
+      "Established and scaled AI Centre of Excellence capabilities, driving research, reusable assets, standardization, adoption, and enterprise AI enablement.",
+      "Led Product & Platform Architecture initiatives to increase reuse, reduce duplication, and accelerate solution delivery.",
+      "Developed domain-specific language models and AI-powered domain blueprints to reimagine business processes.",
+      "Led AI-assisted Software Factory and Digital Twin initiatives to transform software engineering and delivery.",
+      "Built strategic technology partnerships across Microsoft, Databricks, NVIDIA, OpenAI, Factory.ai, and Neo4j.",
+      "Mentored AI architects, engineers, and emerging technology leaders."
     ],
+
     achievements: [
-      "Enabled 30+ AI products and enterprise AI capabilities across global business units",
-      "Established an AI innovation ecosystem spanning research, product development, reusable assets, knowledge sharing, and adoption",
-      "Architected Agentic AI capabilities designed to reduce manual effort and improve enterprise decision velocity",
-      "Influenced large-scale AI transformation and modernization investments",
-      "Created reusable enterprise architecture patterns to accelerate AI adoption and production-scale delivery"
+      "Enabled 30+ AI products and enterprise AI capabilities.",
+      "Reduced manual effort by up to 50% and improved decision velocity by 40% through Agentic AI platforms and intelligent workflows.",
+      "Generated $7–8M in savings from a $2.5M investment through AI CoE standardization, platform reuse, and reduced duplicated engineering effort.",
+      "Achieved 50%+ improvement in output efficiency through domain-specific AI models and redesigned business processes.",
+      "Contributed to more than $10M in realized business value through AI, architecture, platforms, and strategic technology initiatives."
     ],
+
     technologies: [
       "Generative AI",
       "Agentic AI",
       "Multi-Agent Systems",
       "LLMs",
       "RAG",
-      "Reinforcement Learning",
+      "AI Platforms",
+      "Azure",
+      "AWS",
+      "IBM Cloud",
+      "Responsible AI",
       "AgentOps",
-      "Knowledge Graphs",
-      "Vector Databases",
-      "Responsible AI"
+      "Knowledge Systems",
+      "Python",
+      "PyTorch"
     ],
+
     type: "current"
   },
 
   {
     id: 2,
-    period: "2022 - 2024",
-    role: "Principal Product & Platform Architect",
-    company: "EY",
-    location: "India | Global",
-    description: "Led product, platform, and enterprise architecture transformation across complex technology portfolios. Established architecture models that shifted technology organizations from fragmented application-centric delivery toward reusable products, platforms, and enterprise capabilities.",
+    period: "July 2021 - September 2021",
+    role: "Associate Principal | Data Engineering Practice",
+    company: "LTI",
+    location: "India",
+
+    description:
+      "Led data engineering practice responsibilities and contributed to enterprise data and technology architecture initiatives.",
+
     highlights: [
-      "Established Product and Platform Architecture capabilities across enterprise technology domains",
-      "Defined capability-based architecture models connecting business strategy, products, platforms, and technology investments",
-      "Created enterprise product and platform blueprints for reusable technology capabilities",
-      "Led technology portfolio modernization and architecture simplification initiatives",
-      "Defined enterprise reference architectures, architecture principles, and strategic technology roadmaps",
-      "Introduced platform-oriented architecture approaches to reduce duplicated capabilities and technology fragmentation",
-      "Partnered with senior business and technology leaders on strategic transformation priorities",
-      "Shaped architecture governance and technology decision frameworks across enterprise portfolios"
+      "Worked in a senior data engineering practice role supporting enterprise data and technology initiatives.",
+      "Applied architecture and engineering experience across data platforms and enterprise technology environments."
     ],
+
     achievements: [
-      "Enabled significant platform reuse across enterprise technology capabilities",
-      "Reduced technology duplication through reusable product and platform architecture patterns",
-      "Accelerated delivery through capability-based and platform-oriented architecture",
-      "Improved enterprise technology portfolio visibility and strategic investment alignment",
-      "Established scalable Product and Platform Architecture operating models"
+      "Expanded leadership experience across data engineering and enterprise technology architecture."
     ],
+
     technologies: [
-      "Enterprise Architecture",
-      "Product Architecture",
-      "Platform Architecture",
-      "Capability-Based Planning",
-      "Cloud Native",
-      "Microservices",
-      "API Architecture",
-      "Architecture Governance",
-      "Technology Strategy",
-      "Portfolio Modernization"
+      "Data Engineering",
+      "Data Platforms",
+      "Enterprise Architecture"
     ],
+
     type: "past"
   },
 
   {
     id: 3,
-    period: "2018 - 2022",
-    role: "Enterprise & Digital Transformation Architect",
-    company: "EY   Accenture",
+    period: "November 2019 - July 2021",
+    role: "Technology Architect Delivery Manager | Data & AI Practice",
+    company: "Accenture",
     location: "India | Global",
-    description: "Architected large-scale digital, data, cloud, and enterprise modernization initiatives. Focused on simplifying complex technology landscapes, creating reusable digital capabilities, and establishing scalable platforms for analytics, intelligent applications, and enterprise transformation.",
+
+    description:
+      "Led Data & AI practice teams and delivered AI transformation initiatives spanning machine learning, NLP, deep learning, showcases, and prototypes.",
+
     highlights: [
-      "Led architecture modernization across enterprise digital products and technology platforms",
-      "Designed scalable digital platform architectures supporting large user ecosystems",
-      "Architected enterprise data fusion and intelligent data hub capabilities",
-      "Defined modern lakehouse and Delta architecture transformation patterns",
-      "Designed intelligent supply chain analytics and decision intelligence platforms",
-      "Introduced cloud-native, microservices, and API-led architecture patterns",
-      "Established reusable enterprise services and platform capabilities",
-      "Integrated advanced analytics, AI, and intelligent decision support into enterprise platforms"
+      "Led Data & AI practice teams across technology and delivery initiatives.",
+      "Drove AI transformation initiatives using Machine Learning, NLP, and Deep Learning.",
+      "Led AI showcases, prototypes, and emerging technology initiatives to demonstrate enterprise AI opportunities.",
+      "Worked with technology and business stakeholders to translate AI concepts into practical solutions."
     ],
+
     achievements: [
-      "Modernized enterprise digital platforms supporting large-scale user ecosystems",
-      "Reduced technology complexity through architecture simplification and reusable platform capabilities",
-      "Accelerated time-to-market through modern cloud and platform architecture patterns",
-      "Created AI-ready enterprise data and analytics foundations",
-      "Improved scalability and extensibility of enterprise digital platforms"
+      "Strengthened Data & AI delivery capabilities through architecture leadership and technology innovation.",
+      "Advanced AI adoption through practical showcases and working prototypes."
     ],
+
     technologies: [
-      "Microsoft Azure",
-      "AWS",
-      "Cloud Native",
-      "Microservices",
-      "Data Architecture",
-      "Data Fusion",
-      "Delta Lake",
-      "Lakehouse",
-      "Advanced Analytics",
-      "Platform Engineering"
+      "Artificial Intelligence",
+      "Machine Learning",
+      "NLP",
+      "Deep Learning",
+      "Data & AI",
+      "Prototyping"
     ],
+
     type: "past"
   },
 
   {
     id: 4,
-    period: "2014 - 2018",
-    role: "Platform & Industrial IoT Architect",
+    period: "November 2008 - November 2019",
+    role: "Technology Leader | Analytics & Insights",
     company: "TCS",
     location: "India | Global",
-    description: "Led architecture and development of Industrial IoT and connected platform capabilities, bringing together devices, edge environments, industrial protocols, streaming data, enterprise integration, and analytics to create scalable digital foundations for intelligent industrial solutions.",
+
+    description:
+      "Built a long-term technology leadership foundation across analytics, insights, enterprise delivery, emerging technology, and strategic client engagements.",
+
     highlights: [
-      "Architected enterprise Industrial IoT platform capabilities",
-      "Designed scalable device, edge, gateway, and enterprise integration architectures",
-      "Defined multi-protocol connectivity patterns for industrial and constrained devices",
-      "Designed telemetry ingestion, event processing, and streaming data architectures",
-      "Created industrial data contextualization and enterprise integration patterns",
-      "Enabled predictive analytics and AI-driven industrial use cases",
-      "Established device lifecycle management and connected platform architecture patterns",
-      "Led architecture teams delivering complex IoT and emerging technology solutions"
+      "Led strategic client engagements across Data, Analytics, and Insights.",
+      "Provided technology leadership across complex enterprise delivery initiatives.",
+      "Drove architecture and solution development across analytics and emerging technology domains.",
+      "Mentored and led technology teams across complex client engagements.",
+      "Led a BT IoT Hackathon team, developing an innovative solution for connected technology use cases."
     ],
+
     achievements: [
-      "Created scalable Industrial IoT platform architecture foundations",
-      "Connected industrial devices and edge environments with enterprise technology platforms",
-      "Enabled operational analytics and intelligent industrial capabilities",
-      "Established reusable IoT architecture patterns and platform capabilities",
-      "Expanded architecture leadership across emerging technology and digital platforms"
+      "Improved delivery quality by 50% through technology and delivery leadership.",
+      "Led the BT IoT Hackathon team to a winning solution that subsequently contributed to 33 customer onboardings across BT and EE.",
+      "Built deep expertise across analytics, emerging technologies, enterprise architecture, and technology leadership."
     ],
+
     technologies: [
+      "Analytics",
+      "Data",
+      "Insights",
       "Industrial IoT",
-      "Edge Computing",
-      "MQTT",
-      "LwM2M",
-      "LoRa",
-      "CoAP",
-      "AMQP",
-      "Streaming Data",
-      "Event-Driven Architecture",
-      "Device Management"
+      "Enterprise Architecture",
+      "Technology Delivery"
     ],
+
     type: "past"
   },
 
   {
     id: 5,
-    period: "2004 - 2014",
-    role: "Engineering Leader | Solution & Software Architect",
-    company: "IBM Dell TCS Wipro",
-    location: "India | Global",
-    description: "Built the engineering and architecture foundations of my career across enterprise software, integration, data, and large-scale technology delivery. Progressed from hands-on software engineering into solution architecture and technical leadership roles.",
+    period: "June 2008 - November 2008",
+    role: "Application Lead | Finance Domain",
+    company: "Dell Perot",
+    location: "India",
+
+    description:
+      "Led application engineering activities within the Finance domain, building on a growing foundation in enterprise software and solution delivery.",
+
     highlights: [
-      "Designed and developed enterprise-grade software platforms and applications",
-      "Progressed from hands-on engineering to solution and software architecture leadership",
-      "Led technical design, architecture decisions, and engineering delivery",
-      "Designed enterprise integration, service-oriented, and distributed system architectures",
-      "Built reusable software components and engineering frameworks",
-      "Mentored engineers and technical teams on architecture and development practices",
-      "Worked across complex enterprise technology and business domains",
-      "Developed strong foundations in software architecture, data, integration, and distributed systems"
+      "Led application development and technology activities within the Finance domain.",
+      "Worked across enterprise application delivery and technical implementation."
     ],
+
     achievements: [
-      "Progressed from software engineering into enterprise architecture leadership",
-      "Delivered complex enterprise technology solutions across multiple domains",
-      "Established reusable engineering and architecture practices",
-      "Built the technical foundation for future platform, data, cloud, and AI leadership",
-      "Developed deep hands-on expertise in enterprise software and distributed systems"
+      "Expanded enterprise application and domain experience within a global technology environment."
     ],
+
     technologies: [
-      "Software Architecture",
-      "Enterprise Integration",
-      "Distributed Systems",
-      "Java",
-      "Python",
-      "REST APIs",
-      "Web Services",
-      "Data Platforms",
-      "Service-Oriented Architecture",
-      "Enterprise Applications"
+      "Enterprise Applications",
+      "Application Architecture",
+      "Finance Technology"
     ],
+
+    type: "past"
+  },
+
+  {
+    id: 6,
+    period: "June 2005 - May 2008",
+    role: "Advisory Systems Analyst | Financial Services Sector",
+    company: "IBM",
+    location: "India",
+
+    description:
+      "Worked as an Advisory Systems Analyst in the Financial Services sector, building expertise in enterprise systems, technology analysis, and solution delivery.",
+
+    highlights: [
+      "Worked on enterprise technology initiatives within the Financial Services sector.",
+      "Applied systems analysis and technical expertise to complex enterprise environments.",
+      "Developed experience across technology architecture, enterprise applications, and financial services."
+    ],
+
+    achievements: [
+      "Built a strong foundation in enterprise technology and Financial Services architecture.",
+      "Progressed toward increasingly senior technology and architecture responsibilities."
+    ],
+
+    technologies: [
+      "Systems Analysis",
+      "Enterprise Applications",
+      "Financial Services",
+      "Technology Architecture"
+    ],
+
+    type: "past"
+  },
+
+  {
+    id: 7,
+    period: "October 2004 - June 2005",
+    role: "Project Engineer | BFSI Domain",
+    company: "Wipro",
+    location: "India",
+
+    description:
+      "Started building enterprise technology expertise through software engineering and project delivery within the Banking, Financial Services and Insurance domain.",
+
+    highlights: [
+      "Worked as a Project Engineer on enterprise technology initiatives within the BFSI domain.",
+      "Built hands-on software engineering and project delivery experience.",
+      "Developed domain knowledge across Banking, Financial Services, and Insurance."
+    ],
+
+    achievements: [
+      "Established an early foundation in enterprise software engineering and BFSI technology."
+    ],
+
+    technologies: [
+      "Software Engineering",
+      "Enterprise Applications",
+      "BFSI"
+    ],
+
+    type: "past"
+  },
+
+  {
+    id: 8,
+    period: "March 2003 - October 2004",
+    role: "Assistant Engineer (Trainee)",
+    company: "NESCO",
+    location: "India",
+
+    description:
+      "Began the professional engineering journey in a hands-on engineering environment, developing the foundation for a career in technology.",
+
+    highlights: [
+      "Started professional engineering career as an Assistant Engineer (Trainee).",
+      "Built early engineering and technical problem-solving experience."
+    ],
+
+    achievements: [
+      "Established the engineering foundation that led to a long-term technology career."
+    ],
+
+    technologies: [
+      "Engineering",
+      "Technical Problem Solving"
+    ],
+
+    type: "past"
+  },
+
+  {
+    id: 9,
+    period: "October 2001 - March 2003",
+    role: "Freelance Software Developer",
+    company: "Freelance",
+    location: "India",
+
+    description:
+      "Started the technology journey as a freelance software developer, gaining hands-on experience in software development and establishing the foundation for an enterprise technology career.",
+
+    highlights: [
+      "Worked as a freelance software developer across software development assignments.",
+      "Built hands-on programming and software development experience.",
+      "Established the foundation for subsequent enterprise technology and architecture roles."
+    ],
+
+    achievements: [
+      "Began the professional technology journey through hands-on software development."
+    ],
+
+    technologies: [
+      "Software Development",
+      "Programming"
+    ],
+
     type: "past"
   }
 ];

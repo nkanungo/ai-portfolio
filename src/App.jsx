@@ -7,7 +7,7 @@ import About from './components/About';
 import Metrics from './components/Metrics';
 import CustomerStories from './components/CustomerStories';
 import Projects from './components/Projects';
-import TechStack from './components/TechStack';
+import TechStack from './components/TechStack.jsx';
 import Timeline from './components/Timeline';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -17,29 +17,26 @@ function App() {
   const { theme, toggleTheme } = useTheme();
 
   /*
-   * Streamlined executive portfolio structure:
+   * Executive portfolio structure:
    *
-   * Home
-   * Leadership Impact
-   * Leadership & Architecture
-   * Transformation Stories
-   * Selected Projects
-   * Technology Leadership
-   * Experience
-   * Contact
-   *
-   * AI Research, Innovation & CoE will be incorporated
-   * into the Leadership & Architecture section rather than
-   * appearing as a separate full-page section.
+   * 1. Home
+   * 2. Leadership Impact
+   * 3. Career Journey
+   * 4. Leadership & Transformation Mandate
+   * 5. AI & Technology Transformation Stories
+   * 6. Selected Projects
+   * 7. Technical Skills
+   * 8. Contact
    */
+
   const sectionIds = [
     'home',
     'metrics',
-    'about',
-    'stories',
+    'experience',
+    'leadership',
+    'transformation',
     'projects',
-    'tech',
-    'timeline',
+    'technology',
     'contact'
   ];
 
@@ -48,7 +45,9 @@ function App() {
   return (
     <div className="min-h-screen">
 
-      {/* Navigation */}
+      {/* =====================================================
+          NAVIGATION
+      ====================================================== */}
       <Navbar
         theme={theme}
         toggleTheme={toggleTheme}
@@ -59,7 +58,7 @@ function App() {
 
         {/* =====================================================
             1. EXECUTIVE HERO
-            Who I am + leadership positioning + executive profile
+            Who I am + leadership positioning
         ====================================================== */}
         <Hero />
 
@@ -70,35 +69,40 @@ function App() {
         <Metrics />
 
         {/* =====================================================
-            3. LEADERSHIP & ARCHITECTURE
-            AI transformation, platforms, product architecture,
-            AI research, innovation and CoE leadership
+            3. CAREER JOURNEY
+            22+ year progression from engineering to
+            enterprise AI, architecture and transformation
+            leadership
+        ====================================================== */}
+        <Timeline />
+
+        {/* =====================================================
+            4. LEADERSHIP & TRANSFORMATION MANDATE
+            Leadership capabilities, enterprise architecture,
+            AI architecture, AI CoE, strategy, governance,
+            transformation, talent and innovation
         ====================================================== */}
         <About />
 
         {/* =====================================================
-            4. TRANSFORMATION STORIES
-            Selected business transformation examples
+            5. AI & TECHNOLOGY TRANSFORMATION STORIES
+            Selected business and technology transformation
+            examples demonstrating application of leadership
+            and architecture capabilities
         ====================================================== */}
         <CustomerStories />
 
         {/* =====================================================
-            5. SELECTED PROJECTS
-            Flagship AI/platform/architecture initiatives
+            6. SELECTED PROJECTS
+            Flagship AI, platform and architecture initiatives
         ====================================================== */}
         <Projects />
 
         {/* =====================================================
-            6. TECHNOLOGY LEADERSHIP & ARCHITECTURE
+            7. TECHNICAL SKILLS
             Strategic → Architecture → Hands-on expertise
         ====================================================== */}
         <TechStack />
-
-        {/* =====================================================
-            7. EXPERIENCE
-            Executive career timeline
-        ====================================================== */}
-        <Timeline />
 
         {/* =====================================================
             8. CONTACT
@@ -110,6 +114,7 @@ function App() {
 
       <Footer />
       <ScrollToTop />
+
     </div>
   );
 }

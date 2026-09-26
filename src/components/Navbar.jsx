@@ -1,224 +1,209 @@
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import ThemeToggle from './ThemeToggle';
+import React, { useEffect, useState } from "react";
 
-const Navbar = ({ theme, toggleTheme, activeSection }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const navigation = [
+  { name: "Home", href: "#home" },
+  { name: "Impact", href: "#metrics" },
+  { name: "Career Journey", href: "#experience" },
+  { name: "Leadership", href: "#leadership" },
+  { name: "Transformation", href: "#transformation" },
+  { name: "Projects", href: "#projects" },
+  { name: "Technical Skills", href: "#technology" },
+  { name: "Contact", href: "#contact" },
+];
 
-  const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'metrics', label: 'Impact' },
-    { id: 'about', label: 'Leadership' },
-    { id: 'stories', label: 'Transformation' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'tech', label: 'Technology' },
-    { id: 'timeline', label: 'Experience' },
-    { id: 'contact', label: 'Contact' }
-  ];
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 20);
+
+      const sections = navigation
+        .map((item) => document.querySelector(item.href))
+        .filter(Boolean);
+
+      let currentSection = "home";
+
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+
+        if (rect.top <= 140) {
+          currentSection = section.id;
+        }
+      });
+
+      setActiveSection(currentSection);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    handleScroll();
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
+  const handleNavigation = (href) => {
+    setIsOpen(false);
+
+    const element = document.querySelector(href);
 
     if (element) {
-      const offset = 80;
-
-      const elementPosition =
-        element.getBoundingClientRect().top;
-
-      const offsetPosition =
-        elementPosition +
-        window.pageYOffset -
-        offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
       });
     }
-
-    setIsMobileMenuOpen(false);
   };
 
   return (
-    <>
-      {/* Navigation */}
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'glass-effect shadow-lg py-3'
-            : 'bg-transparent py-5'
-        }`}
-      >
-        <div className="container-custom">
+    <header
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "border-b border-white/10 bg-[#070b18]/95 shadow-lg shadow-black/20 backdrop-blur-xl"
+          : "bg-transparent"
+      }`}
+    >
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
 
-          <div className="flex items-center justify-between">
-
-            {/* Logo */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              onClick={() => scrollToSection('home')}
-              className="text-2xl font-bold gradient-text"
-              aria-label="Go to home"
-            >
+        {/* =====================================================
+            LOGO
+        ====================================================== */}
+        <button
+          onClick={() => handleNavigation("#home")}
+          className="group flex items-center gap-3"
+          aria-label="Go to home"
+        >
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-400/40 bg-cyan-400/10 shadow-[0_0_20px_rgba(34,211,238,0.12)] transition-all duration-300 group-hover:border-cyan-300/70 group-hover:bg-cyan-400/20">
+            <span className="text-sm font-extrabold tracking-tight text-cyan-300">
               NRK
-            </motion.button>
-
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1">
-
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`px-3 py-2 rounded-lg text-sm transition-all duration-300 ${
-                    activeSection === item.id
-                      ? 'text-accent-cyan font-semibold bg-accent-cyan/5'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-accent-cyan'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-
-            </div>
-
-            {/* Right side */}
-            <div className="flex items-center gap-3">
-
-              <ThemeToggle
-                theme={theme}
-                toggleTheme={toggleTheme}
-              />
-
-              {/* Mobile menu */}
-              <button
-                className="lg:hidden p-2 rounded-lg glass-effect"
-                onClick={() =>
-                  setIsMobileMenuOpen(!isMobileMenuOpen)
-                }
-                aria-label={
-                  isMobileMenuOpen
-                    ? 'Close navigation menu'
-                    : 'Open navigation menu'
-                }
-                aria-expanded={isMobileMenuOpen}
-              >
-                {isMobileMenuOpen ? (
-                  <X className="w-5 h-5" />
-                ) : (
-                  <Menu className="w-5 h-5" />
-                )}
-              </button>
-
-            </div>
-
+            </span>
           </div>
 
-        </div>
-      </motion.nav>
-
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{
-              opacity: 0,
-              x: '100%'
-            }}
-            animate={{
-              opacity: 1,
-              x: 0
-            }}
-            exit={{
-              opacity: 0,
-              x: '100%'
-            }}
-            transition={{
-              type: 'tween',
-              duration: 0.25
-            }}
-            className="fixed inset-y-0 right-0 z-40 w-full sm:w-80 glass-effect shadow-2xl lg:hidden"
-          >
-
-            <div className="flex flex-col h-full pt-24 pb-8 px-5 overflow-y-auto">
-
-              <div className="mb-5 px-3">
-
-                <p className="text-[10px] uppercase tracking-[0.2em] text-accent-cyan">
-                  Navigation
-                </p>
-
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                  Nihar Ranjan Kanungo
-                </p>
-
-              </div>
-
-              {navItems.map((item, index) => (
-                <motion.button
-                  key={item.id}
-                  initial={{
-                    opacity: 0,
-                    x: 30
-                  }}
-                  animate={{
-                    opacity: 1,
-                    x: 0
-                  }}
-                  transition={{
-                    delay: index * 0.035
-                  }}
-                  onClick={() =>
-                    scrollToSection(item.id)
-                  }
-                  className={`text-left py-3.5 px-4 rounded-lg mb-1.5 transition-all duration-300 ${
-                    activeSection === item.id
-                      ? 'bg-accent-cyan/15 text-accent-cyan font-semibold'
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-700'
-                  }`}
-                >
-                  {item.label}
-                </motion.button>
-              ))}
-
+          <div className="hidden sm:block">
+            <div className="text-sm font-bold tracking-wide text-white">
+              Nihar Kanungo
             </div>
 
-          </motion.div>
-        )}
-      </AnimatePresence>
+            <div className="text-[10px] font-medium uppercase tracking-[0.16em] text-slate-500">
+              AI Transformation Leader
+            </div>
+          </div>
+        </button>
 
-      {/* Mobile backdrop */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() =>
-              setIsMobileMenuOpen(false)
-            }
-            className="fixed inset-0 bg-black/50 z-30 lg:hidden"
-          />
-        )}
-      </AnimatePresence>
-    </>
+        {/* =====================================================
+            DESKTOP NAVIGATION
+        ====================================================== */}
+        <div className="hidden items-center gap-1 xl:flex">
+          {navigation.map((item) => {
+            const sectionId = item.href.replace("#", "");
+            const isActive = activeSection === sectionId;
+
+            return (
+              <button
+                key={item.name}
+                onClick={() => handleNavigation(item.href)}
+                className={`relative whitespace-nowrap rounded-lg px-3 py-2 text-[13px] font-medium transition-all duration-300 ${
+                  isActive
+                    ? "text-cyan-300"
+                    : "text-slate-400 hover:bg-white/5 hover:text-white"
+                }`}
+              >
+                {item.name}
+
+                {isActive && (
+                  <span className="absolute bottom-0 left-1/2 h-0.5 w-5 -translate-x-1/2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
+                )}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* =====================================================
+            MOBILE MENU BUTTON
+        ====================================================== */}
+        <button
+          onClick={() => setIsOpen((value) => !value)}
+          className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-slate-300 transition-all duration-300 hover:border-cyan-400/40 hover:bg-cyan-400/10 hover:text-cyan-300 xl:hidden"
+          aria-label={
+            isOpen ? "Close navigation menu" : "Open navigation menu"
+          }
+          aria-expanded={isOpen}
+        >
+          {isOpen ? (
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6 6L18 18M18 6L6 18"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
+          ) : (
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 6H20M4 12H20M4 18H20"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
+          )}
+        </button>
+      </nav>
+
+      {/* =====================================================
+          MOBILE NAVIGATION
+      ====================================================== */}
+      <div
+        className={`overflow-hidden border-t border-white/10 bg-[#070b18]/98 backdrop-blur-xl transition-all duration-300 xl:hidden ${
+          isOpen ? "max-h-[700px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="mx-auto max-w-7xl px-6 py-4">
+          <div className="flex flex-col gap-1">
+
+            {navigation.map((item) => {
+              const sectionId = item.href.replace("#", "");
+              const isActive = activeSection === sectionId;
+
+              return (
+                <button
+                  key={item.name}
+                  onClick={() => handleNavigation(item.href)}
+                  className={`flex items-center justify-between rounded-lg px-4 py-3 text-left text-sm font-medium transition-all duration-300 ${
+                    isActive
+                      ? "bg-cyan-400/10 text-cyan-300"
+                      : "text-slate-400 hover:bg-white/5 hover:text-white"
+                  }`}
+                >
+                  <span>{item.name}</span>
+
+                  {isActive && (
+                    <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
+                  )}
+                </button>
+              );
+            })}
+
+          </div>
+        </div>
+      </div>
+    </header>
   );
-};
-
-export default Navbar;
+}
