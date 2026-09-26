@@ -7,10 +7,10 @@ export const metrics = [
     icon: "building",
   },
   {
-    value: "500+",
-    label: "Professionals Led",
+    value: "100+",
+    label: "Senior Professionals Led",
     description:
-      "Managing global delivery teams across 6 countries",
+      " Global delivery teams across 6 countries",
     icon: "users",
   },
   {
@@ -38,7 +38,7 @@ export const metrics = [
     value: "40%",
     label: "Delivery Volume Increase",
     description:
-      "Increase in delivery volume last year",
+      "Increase in delivery volume last year through AI Adoption",
     icon: "rocket",
   },
   {
@@ -64,7 +64,7 @@ export const metrics = [
   },
   {
     value: "EY GDS",
-    label: "Impact Award",
+    label: "Impact Award Winner",
     description:
       "EY GDS Impact Award",
     icon: "target",
