@@ -70,8 +70,8 @@ const Hero = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 container-custom w-full section-padding pt-24 pb-20">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 xl:gap-20 items-center max-w-7xl mx-auto">
+      <div className="relative z-10 container-custom w-full px-6 lg:px-8 pt-20 pb-14">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center max-w-7xl mx-auto">
 
           {/* =========================================================
               LEFT COLUMN — PROFILE & POSITIONING
@@ -87,9 +87,9 @@ const Hero = () => {
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="mb-5 inline-block"
+              className="mb-3 inline-block"
             >
-              <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-gradient-to-br from-accent-cyan to-accent-purple p-1 shadow-lg shadow-accent-cyan/20">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-accent-cyan to-accent-purple p-1 shadow-lg shadow-accent-cyan/20">
                 <img
                   src="./profile.jpg"
                   alt="Nihar Ranjan Kanungo"
@@ -103,7 +103,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-4xl md:text-5xl xl:text-6xl font-bold text-white mb-3 text-shadow leading-tight"
+              className="text-4xl md:text-5xl xl:text-[3.4rem] font-bold text-white mb-2 text-shadow leading-tight"
             >
               Nihar Ranjan Kanungo
             </motion.h1>
@@ -113,7 +113,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl md:text-2xl font-semibold gradient-text mb-5 leading-snug"
+              className="text-lg md:text-xl xl:text-2xl font-semibold gradient-text mb-3 leading-snug"
             >
               Principal Platform & Product Architect
               <span className="block">
@@ -126,7 +126,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-base md:text-lg text-gray-300 mb-6 max-w-xl mx-auto lg:mx-0 leading-relaxed"
+              className="text-sm md:text-base xl:text-lg text-gray-300 mb-4 max-w-xl mx-auto lg:mx-0 leading-relaxed"
             >
               Architecting Enterprise AI. Building Intelligent Platforms.
               Transforming Businesses with Generative AI, Agentic AI,
@@ -138,7 +138,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-wrap justify-center lg:justify-start gap-2 mb-7"
+              className="flex flex-wrap justify-center lg:justify-start gap-1.5 mb-5"
             >
               {specialties.map((specialty, index) => (
                 <motion.span
@@ -149,7 +149,7 @@ const Hero = () => {
                     duration: 0.4,
                     delay: 0.65 + index * 0.08
                   }}
-                  className="px-3 py-1.5 rounded-full glass-effect text-xs md:text-sm text-gray-200 border border-accent-cyan/30"
+                  className="px-2.5 py-1 rounded-full glass-effect text-[11px] md:text-xs text-gray-200 border border-accent-cyan/30"
                 >
                   {specialty}
                 </motion.span>
@@ -161,29 +161,29 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex flex-wrap justify-center lg:justify-start gap-3"
+              className="flex flex-wrap justify-center lg:justify-start gap-2"
             >
               <button
                 onClick={() => scrollToSection('projects')}
-                className="btn-primary flex items-center gap-2"
+                className="btn-primary flex items-center gap-1.5 px-3.5 py-2 text-sm"
               >
-                <Briefcase className="w-5 h-5" />
+                <Briefcase className="w-4 h-4" />
                 Explore My Work
               </button>
 
               <button
                 onClick={() => scrollToSection('stories')}
-                className="btn-secondary flex items-center gap-2"
+                className="btn-secondary flex items-center gap-1.5 px-3.5 py-2 text-sm"
               >
-                <Users className="w-5 h-5" />
+                <Users className="w-4 h-4" />
                 Transformation Stories
               </button>
 
               <button
                 onClick={() => scrollToSection('contact')}
-                className="btn-secondary flex items-center gap-2"
+                className="btn-secondary flex items-center gap-1.5 px-3.5 py-2 text-sm"
               >
-                <Mail className="w-5 h-5" />
+                <Mail className="w-4 h-4" />
                 Let's Connect
               </button>
             </motion.div>
@@ -198,28 +198,28 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="w-full"
           >
-            <div className="glass-effect rounded-2xl border border-accent-cyan/20 p-7 md:p-8 lg:p-9 shadow-xl shadow-black/10">
+            <div className="glass-effect rounded-2xl border border-accent-cyan/20 p-6 md:p-7 shadow-xl shadow-black/10">
 
               {/* About Heading */}
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-purple flex items-center justify-center flex-shrink-0">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-purple flex items-center justify-center flex-shrink-0">
                   <Brain className="w-5 h-5 text-white" />
                 </div>
 
                 <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-accent-cyan mb-1">
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-accent-cyan mb-0.5">
                     Executive Profile
                   </p>
 
-                  <h3 className="text-2xl md:text-3xl font-bold text-white">
+                  <h3 className="text-2xl md:text-[1.7rem] font-bold text-white">
                     About Me
                   </h3>
                 </div>
               </div>
 
               {/* About Text */}
-              <div className="space-y-4">
-                <p className="text-sm md:text-base text-gray-300 leading-relaxed">
+              <div className="space-y-3">
+                <p className="text-sm md:text-[15px] text-gray-300 leading-relaxed">
                   I am an{' '}
                   <strong className="text-accent-cyan">
                     AI Transformation Leader
@@ -233,7 +233,7 @@ const Hero = () => {
                   business outcomes.
                 </p>
 
-                <p className="text-sm md:text-base text-gray-300 leading-relaxed">
+                <p className="text-sm md:text-[15px] text-gray-300 leading-relaxed">
                   My journey spans{' '}
                   <strong className="text-white">
                     Financial Services, Banking, Insurance, Supply Chain,
@@ -245,7 +245,7 @@ const Hero = () => {
                   initiatives.
                 </p>
 
-                <p className="text-sm md:text-base text-gray-300 leading-relaxed">
+                <p className="text-sm md:text-[15px] text-gray-300 leading-relaxed">
                   From architecting{' '}
                   <strong className="text-white">
                     enterprise Agentic AI platforms and multi-agent systems
@@ -260,33 +260,33 @@ const Hero = () => {
                 </p>
               </div>
 
-              {/* Leadership Highlights */}
-              <div className="mt-7 pt-6 border-t border-gray-700/40">
-                <div className="grid grid-cols-3 gap-4 text-center">
+              {/* Leadership Metrics */}
+              <div className="mt-5 pt-4 border-t border-gray-700/40">
+                <div className="grid grid-cols-3 gap-2 text-center">
 
                   <div>
                     <div className="text-xl md:text-2xl font-bold gradient-text">
                       22+
                     </div>
-                    <div className="text-xs text-gray-400 mt-1">
+                    <div className="text-[10px] md:text-xs text-gray-400 mt-0.5">
                       Years Experience
                     </div>
                   </div>
 
-                  <div>
+                  <div className="border-l border-gray-700/40">
                     <div className="text-xl md:text-2xl font-bold gradient-text">
                       30+
                     </div>
-                    <div className="text-xs text-gray-400 mt-1">
+                    <div className="text-[10px] md:text-xs text-gray-400 mt-0.5">
                       AI Products
                     </div>
                   </div>
 
-                  <div>
+                  <div className="border-l border-gray-700/40">
                     <div className="text-xl md:text-2xl font-bold gradient-text">
                       100+
                     </div>
-                    <div className="text-xs text-gray-400 mt-1">
+                    <div className="text-[10px] md:text-xs text-gray-400 mt-0.5">
                       Leaders & Engineers
                     </div>
                   </div>
@@ -298,10 +298,10 @@ const Hero = () => {
               <motion.button
                 whileHover={{ x: 4 }}
                 onClick={() => scrollToSection('about')}
-                className="mt-6 text-sm font-medium text-accent-cyan hover:text-white transition-colors flex items-center gap-2"
+                className="mt-4 text-xs md:text-sm font-medium text-accent-cyan hover:text-white transition-colors flex items-center gap-2"
               >
                 Explore my leadership & architecture focus
-                <ArrowDown className="w-4 h-4 -rotate-90" />
+                <ArrowDown className="w-3.5 h-3.5 -rotate-90" />
               </motion.button>
 
             </div>
@@ -314,10 +314,10 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.5 }}
-          className="absolute bottom-6 left-1/2 transform -translate-x-1/2 hidden md:block"
+          className="absolute bottom-5 left-1/2 transform -translate-x-1/2 hidden md:block"
         >
           <motion.div
-            animate={{ y: [0, 8, 0] }}
+            animate={{ y: [0, 7, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
             className="cursor-pointer"
             onClick={() => scrollToSection('about')}
