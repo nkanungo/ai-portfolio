@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { ArrowDown, Mail, Briefcase, Users } from 'lucide-react';
 
@@ -81,9 +80,9 @@ const Hero = () => {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mb-8 inline-block"
+            className="mb-4 inline-block"
           >
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-accent-cyan to-accent-purple p-1">
+            <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-gradient-to-br from-accent-cyan to-accent-purple p-1 shadow-lg shadow-accent-cyan/20">
               <img
                 src="./profile.jpg"
                 alt="Nihar Ranjan Kanungo"
@@ -97,7 +96,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-5xl md:text-7xl font-bold text-white mb-4 text-shadow"
+            className="text-4xl md:text-5xl font-bold text-white mb-3 text-shadow"
           >
             Nihar Ranjan Kanungo
           </motion.h1>
@@ -107,9 +106,9 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-2xl md:text-4xl font-semibold gradient-text mb-6"
+            className="text-lg md:text-2xl font-semibold gradient-text mb-4"
           >
-            AI Transformation Leader | Principal Product & Platform Architect
+            Principal Platform & Product Architect | AI Transformation Leader
           </motion.h2>
 
           {/* Tagline */}
@@ -117,7 +116,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto"
+            className="text-base md:text-lg text-gray-300 mb-6 max-w-3xl mx-auto leading-relaxed"
           >
             Architecting Enterprise AI. Building Intelligent Platforms.
             Transforming Businesses with Generative AI, Agentic AI,
@@ -129,7 +128,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-wrap justify-center gap-3 mb-12"
+            className="flex flex-wrap justify-center gap-2.5 mb-8"
           >
             {specialties.map((specialty, index) => (
               <motion.span
@@ -140,7 +139,7 @@ const Hero = () => {
                   duration: 0.5,
                   delay: 0.7 + index * 0.1
                 }}
-                className="px-4 py-2 rounded-full glass-effect text-sm text-gray-200 border border-accent-cyan/30"
+                className="px-3 py-1.5 rounded-full glass-effect text-xs md:text-sm text-gray-200 border border-accent-cyan/30"
               >
                 {specialty}
               </motion.span>
@@ -152,7 +151,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-wrap justify-center gap-4"
+            className="flex flex-wrap justify-center gap-3"
           >
             <button
               onClick={() => scrollToSection('projects')}
@@ -202,4 +201,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
