@@ -54,86 +54,44 @@ const levelConfig = {
 const CapabilityBadge = ({ level }) => {
   const config = levelConfig[level];
 
-  if (!config) {
-    return (
-      <span className="text-xs text-gray-500 dark:text-gray-400">
-        {level}
-      </span>
-    );
-  }
+  if (!config) return null;
 
   const LevelIcon = config.icon;
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-xs font-semibold ${config.badgeClass}`}
+      className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-full border text-[10px] font-semibold ${config.badgeClass}`}
     >
-      <LevelIcon className="w-3.5 h-3.5" />
+      <LevelIcon className="w-3 h-3" />
       {config.label}
     </span>
   );
 };
 
 const TechStack = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20
-    },
-
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5
-      }
-    }
-  };
-
   return (
     <section
       id="tech"
       className="section-padding bg-white dark:bg-dark-900 relative overflow-hidden"
     >
       {/* Background decoration */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent-purple/10 rounded-full blur-3xl" />
-
-      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-accent-cyan/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent-purple/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-accent-cyan/5 rounded-full blur-3xl" />
 
       <div className="container-custom relative z-10">
+
         <SectionHeading
-          title="Technology & Architecture Capabilities"
-          subtitle="Strategic leadership, architecture depth, and hands-on expertise across AI, data, cloud, platforms, and emerging technologies"
+          title="Technology Leadership & Architecture"
+          subtitle="Strategic technology leadership, architecture depth and hands-on expertise across AI, data, cloud and enterprise platforms."
         />
 
-        {/* Capability level legend */}
+        {/* Capability legend */}
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 20
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0
-          }}
-          viewport={{
-            once: true
-          }}
-          transition={{
-            duration: 0.6
-          }}
-          className="flex flex-wrap justify-center gap-3 mb-10"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-wrap justify-center gap-2 mb-8"
         >
           {Object.entries(levelConfig).map(([level, config]) => {
             const LevelIcon = config.icon;
@@ -141,11 +99,10 @@ const TechStack = () => {
             return (
               <div
                 key={level}
-                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${config.badgeClass}`}
+                className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border ${config.badgeClass}`}
               >
-                <LevelIcon className="w-4 h-4" />
-
-                <span className="text-sm font-semibold">
+                <LevelIcon className="w-3.5 h-3.5" />
+                <span className="text-xs font-semibold">
                   {config.label}
                 </span>
               </div>
@@ -153,15 +110,9 @@ const TechStack = () => {
           })}
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{
-            once: true
-          }}
-          className="space-y-8"
-        >
+        {/* Technology categories */}
+        <div className="space-y-5">
+
           {techCategories.map((category, categoryIndex) => {
             const categoryData = techStack[category];
             const Icon = iconMap[categoryData.icon];
@@ -169,109 +120,107 @@ const TechStack = () => {
             return (
               <motion.div
                 key={category}
-                variants={itemVariants}
-                className="glass-effect rounded-2xl p-6 md:p-8 border border-gray-200/20 dark:border-gray-700/30 hover:border-accent-cyan/50 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.5,
+                  delay: categoryIndex * 0.05
+                }}
+                className="rounded-2xl bg-gray-50 dark:bg-dark-800 border border-gray-200 dark:border-gray-700/50 p-5 md:p-6 hover:border-accent-cyan/40 transition-all duration-300"
               >
-                {/* Category Header */}
-                <div className="flex items-center gap-4 mb-6">
+
+                {/* Category header */}
+                <div className="flex items-center gap-3 mb-5">
+
                   <div
-                    className={`w-14 h-14 rounded-xl bg-gradient-to-br ${categoryData.color} flex items-center justify-center flex-shrink-0`}
+                    className={`w-10 h-10 rounded-xl bg-gradient-to-br ${categoryData.color} flex items-center justify-center flex-shrink-0`}
                   >
-                    {Icon && <Icon className="w-7 h-7 text-white" />}
+                    {Icon && (
+                      <Icon className="w-5 h-5 text-white" />
+                    )}
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                    {category}
-                  </h3>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white">
+                      {category}
+                    </h3>
+
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                      {categoryData.technologies.length} capabilities
+                    </p>
+                  </div>
+
                 </div>
 
-                {/* Technologies Grid */}
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {/* Technologies */}
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2.5">
+
                   {categoryData.technologies.map((tech, techIndex) => {
                     const level = levelConfig[tech.level];
 
                     return (
                       <motion.div
                         key={tech.name}
-                        initial={{
-                          opacity: 0,
-                          scale: 0.9
-                        }}
-                        whileInView={{
-                          opacity: 1,
-                          scale: 1
-                        }}
-                        viewport={{
-                          once: true
-                        }}
+                        initial={{ opacity: 0, scale: 0.96 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
                         transition={{
-                          duration: 0.3,
+                          duration: 0.25,
                           delay:
-                            categoryIndex * 0.05 +
-                            techIndex * 0.03
+                            categoryIndex * 0.03 +
+                            techIndex * 0.015
                         }}
-                        whileHover={{
-                          y: -4,
-                          scale: 1.02
-                        }}
-                        className="relative group"
+                        className="group"
                       >
-                        <div className="h-full p-4 rounded-xl bg-gray-50 dark:bg-dark-800 border border-gray-200 dark:border-gray-700 hover:border-accent-cyan/70 transition-all duration-300">
-                          {/* Technology name */}
-                          <div className="flex items-start gap-3 mb-4">
+                        <div className="h-full px-3 py-3 rounded-xl bg-white dark:bg-dark-900 border border-gray-200 dark:border-gray-700 hover:border-accent-cyan/50 transition-all duration-200">
+
+                          <div className="flex items-start gap-2.5 mb-2">
+
                             {level && (
                               <span
-                                className={`w-2.5 h-2.5 mt-1.5 rounded-full flex-shrink-0 ${level.dotClass}`}
+                                className={`w-2 h-2 mt-1.5 rounded-full flex-shrink-0 ${level.dotClass}`}
                               />
                             )}
 
-                            <span className="font-semibold text-gray-900 dark:text-white leading-snug">
+                            <span className="text-sm font-medium text-gray-800 dark:text-gray-200 leading-snug">
                               {tech.name}
                             </span>
+
                           </div>
 
-                          {/* Capability badge */}
                           <CapabilityBadge level={tech.level} />
+
                         </div>
                       </motion.div>
                     );
                   })}
+
                 </div>
               </motion.div>
             );
           })}
+
+        </div>
+
+        {/* Architecture positioning */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-7 max-w-4xl mx-auto text-center"
+        >
+          <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+            Technology is applied through an architecture-first approach —
+            connecting{' '}
+            <span className="font-medium text-gray-800 dark:text-gray-200">
+              strategy, platforms, engineering and innovation
+            </span>{' '}
+            to create scalable, secure and measurable enterprise outcomes.
+          </p>
         </motion.div>
 
-        {/* Capability narrative */}
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 20
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0
-          }}
-          viewport={{
-            once: true
-          }}
-          transition={{
-            duration: 0.6,
-            delay: 0.3
-          }}
-          className="mt-12 text-center"
-        >
-          <div className="glass-effect inline-block max-w-5xl px-8 py-6 rounded-2xl border border-accent-cyan/30">
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              <span className="font-semibold gradient-text">
-                From emerging AI research to enterprise-scale architecture
-              </span>
-              {' '}— combining strategic technology leadership, architecture
-              depth, and hands-on engineering expertise to turn innovation
-              into scalable platforms and measurable business value.
-            </p>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
