@@ -10,7 +10,7 @@ export const metrics = [
     value: "100+",
     label: "Senior Professionals Led",
     description:
-      " Global delivery teams across 6 countries",
+      "Global delivery teams across 6 countries",
     icon: "users",
   },
   {
@@ -29,16 +29,16 @@ export const metrics = [
   },
   {
     value: "42.9%",
-    label: "Cost Efficiency",
+    label: "Cost Efficiency Achieved",
     description:
       "Cost efficiency achieved last year",
     icon: "target",
   },
   {
     value: "40%",
-    label: "Delivery Volume Increase",
+    label: "Delivery Volume Increased",
     description:
-      "Increase in delivery volume last year through AI Adoption",
+      "Increase in delivery volume last year through AI adoption",
     icon: "rocket",
   },
   {
@@ -71,7 +71,7 @@ export const metrics = [
   },
   {
     value: "Top 10",
-    label: "EY Distinguished Technologist Award",
+    label: "EY Distinguished Technologist",
     description:
       "Among the top 10 for the EY Distinguished Technologist Award",
     icon: "target",
